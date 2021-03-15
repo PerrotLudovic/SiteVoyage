@@ -89,7 +89,8 @@ public class App {
 
 			if(compteConnected instanceof Admin) {
 				System.out.println("Un plaisir de te revoir cher Admin :)");
-				listeVoyages();
+				System.out.println("Saisir une action : ");
+				menuAdmin();
 			}
 
 			else if(compteConnected instanceof Compte)
@@ -106,6 +107,121 @@ public class App {
 		else if(compte1.equals("non")) {
 			System.out.println("Saisir les données pour créer votre compte.");
 			creationCompte();
+		}
+	}
+	
+	private static void menuAdmin() {
+		System.out.println("1- Supprimer un client");
+		System.out.println("2- Supprimer un voyage");
+		System.out.println("3- Modifier un voyage");
+		System.out.println("4- Ajouter un voyage");
+		System.out.println("5- Retour au menu principal");
+		int choix = saisieInt("");
+
+		switch (choix) {
+		case 1: supprimerClient(); break;
+		case 2: supprimerVoyage(); break;
+		case 3: modifierVoyage(); break;
+		case 4: ajouterVoyage(); break;
+		case 5: menuPrincipal(); break;
+		default : System.out.println("Choix impossible !\n");
+		}
+	}
+
+	private static void ajouterVoyage() {
+		//Créer un nouveau Pays
+		System.out.println("Veuillez rentrer les donées");
+		int id=saisieInt("id");
+		String nom=saisieString("nom");
+		int restriction=saisieInt("Restriction (0 pour non et 1 pour oui)");
+		int prixJours=saisieInt("prixJours");
+
+		Pays p=new Pays(id,nom,restriction,prixJours);
+
+		daoPays.insert(p);
+
+		// Créer le Voyage
+		System.out.println("Veuillez rentrer les donées");
+		String debut=saisieString("date de départ");
+		String fin=saisieString("date de fin");
+		int idDestination=saisieInt("l'id du pays de destination");
+		int idDepart=saisieInt("l'id du pays de départ");
+
+
+		Voyage v=new Voyage(debut,fin,idDestination,idDepart);
+
+		daoVoyage.insert(v);
+	}
+
+
+
+
+
+	/*private static void modifierVoyage() {
+		
+		
+		System.out.println("1-Modifier");
+		System.out.println("2-Retour menu admin");
+		int choix = saisieInt("");
+
+		if (choix==1) {
+			listeVoyages();
+			int id = saisieInt("Saisir l'id du voyage à modifier");
+			Voyage v = daoVoyage.findById(id);
+			String newDebut= saisieString("La date de départ est le : "+v.getDebut()+". Quel est la nouvelle date ?");
+			v.setDebut(newDebut);
+			String newFin= saisieString("La date de fin est le : "+v.getFin()+". Quel est la nouvelle date ?");
+			v.setFin(LocalDate.parse(newFin));
+			
+			daoVoyage.update(v);
+			
+		} else if (choix==2) {
+			menuPrincipal();
+		}else {
+			System.out.println("Erreur saisie, selectionner 1 ou 2");
+		}
+
+	}*/
+
+	private static void supprimerVoyage() {
+		listeVoyages();
+		System.out.println("1-Supprimer");
+		System.out.println("2-Retour menu admin");
+		int choix = saisieInt("");
+
+		if (choix==1) {
+			int id = saisieInt("Saisir l'id du voyage à supprimer");
+			Voyage v = daoVoyage.findById(id);
+			daoVoyage.delete(v);
+		} else if (choix==2) {
+			menuPrincipal();
+		}else {
+			System.out.println("Erreur saisie, selectionner 1 ou 2");
+		}
+
+
+	}
+
+	private static void supprimerClient() {
+
+		System.out.println("1-Supprimer");
+		System.out.println("2-Retour menu admin");
+		int choix = saisieInt("");
+
+		if (choix==1) {
+			int id = saisieInt("Saisir l'id du client à supprimer :");
+			for(Compte  c : daoCompte.findAll())
+			{
+				System.out.println(c);
+			}
+
+			Compte c = daoCompte.findById(id);
+			daoCompte.delete(c);
+
+		} else if (choix==2) {
+			menuPrincipal();
+		}else {
+			System.out.println("Erreur saisie, selectionner 1 ou 2");
 		}
 	}
 		
