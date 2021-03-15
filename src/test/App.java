@@ -86,6 +86,7 @@ public class App {
 			String password=saisieString("Saisir password ");
 
 			compteConnected=daoCompte.checkConnect(login, password);
+			System.out.println(compteConnected);
 
 			if(compteConnected instanceof Admin) {
 				System.out.println("Un plaisir de te revoir cher Admin :)");
@@ -227,7 +228,6 @@ public class App {
 		
 	private static void monCompte() {
 
-			compteConnected = null;
 			
 			System.out.println("1 - Mes informations");
 			System.out.println("2 - Voir mes reservations");
@@ -237,9 +237,10 @@ public class App {
 
 			switch(choix) 
 			{
-			case 2 : System.out.println(daoReservation.findByIdCompte(compteConnected.getId())); break;
+			
 			case 1 : System.out.println(compteConnected);break;
-			case 3 : choixReservation();break;
+			case 2 : System.out.println(daoReservation.findByIdCompte(compteConnected.getId())); break;
+			case 3 : listeVoyages();break;
 			case 4: menuPrincipal();break;
 			default : System.out.println("Choix impossible !\n");
 			}
@@ -294,20 +295,7 @@ public class App {
 
 	}
 
-	/*private static void creationCompte() {
-		String nom=saisieString("nom");
-		String prenom=saisieString("prenom");
-		String mail=saisieString("mail");
-		String password=saisieString("password");
-		String typeCompte="Client";
-
-		Compte c=new Compte(nom,prenom,mail,password,typeCompte);
-
-		daoCompte.insert(c);
-		compteConnected=daoCompte.checkConnect(nom, password);
-		listeVoyages();
-
-	}*/
+	
 	private static void choixReservation() {
 		List<Activite> activites=new ArrayList();
 		Activite a1=null;
@@ -374,6 +362,26 @@ public class App {
 
 		Voyageur voy=new Voyageur(id,nom,prenom);
 		*/
+	// Ajout du voyageur
+
+			String choixV = saisieString("Voulez vous ajouter un voyageur (oui/non)? ");
+			DAOVoyageur daoVoyageur=new DAOVoyageur();
+			
+				if(choixV.equals("oui")) {
+
+				int id1=saisieInt("Saisir id voyageur");
+				int idReservation=saisieInt("Saisir id réservation");
+				String nom=saisieString("Saisir nom voyageur");
+				String prenom=saisieString("Saisir prenom voyageur");
+				
+				Voyageur vy =new Voyageur(id1, idReservation, nom, prenom);
+				vy = new Voyageur(id1, idReservation, nom, prenom);
+				daoVoyageur.insert(vy);}
+
+			else if(choixActivites.equals("non")) {
+
+			}
+
 		
 		System.out.println("Récapitulatif réservation : ");
 		System.out.println(daoVoyage.findById(v.getId()));
@@ -403,7 +411,7 @@ public class App {
 	
 
 		public static void main(String[] args) {
-	
+	System.out.println(daoReservation.findAll());
 			menuPrincipal();
 		}
 	}	
