@@ -27,7 +27,7 @@ public class DAOPays implements IDAO<Pays, Integer>{
 			{
 				int id1=rs.getInt("id");
 				String nom=rs.getString("nom");
-				boolean restriction=rs.getBoolean("restriction");
+				int restriction=rs.getInt("restriction");
 				int prixJours=rs.getInt("prixJours");
 
 				pays= new Pays(id1,nom,restriction,prixJours);
@@ -90,7 +90,7 @@ public class DAOPays implements IDAO<Pays, Integer>{
 			{
 				int id=rs.getInt("id");
 				String nom=rs.getString("nom");
-				boolean restriction=rs.getBoolean("restriction");
+				int restriction=rs.getInt("restriction");
 				int prixJours=rs.getInt("prixJours");
 
 				Pays p = (Pays) new Pays(id,nom,restriction,prixJours);
@@ -117,7 +117,7 @@ public class DAOPays implements IDAO<Pays, Integer>{
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO pays VALUES(?,?,?,?)");
 			ps.setInt(1,p.getId());
 			ps.setString(2, p.getNom());
-			ps.setBoolean(3, p.isRestriction());
+			ps.setInt(3, p.isRestriction());
 			ps.setInt(4,p.getPrixJours());
 
 			ps.executeUpdate();
@@ -142,7 +142,7 @@ public class DAOPays implements IDAO<Pays, Integer>{
 
 			ps.setInt(1,p.getId());
 			ps.setString(2, p.getNom());
-			ps.setBoolean(3, p.isRestriction());
+			ps.setInt(3, p.isRestriction());
 			ps.setInt(4,p.getPrixJours());
 
 			ps.executeUpdate();

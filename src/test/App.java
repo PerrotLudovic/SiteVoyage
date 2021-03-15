@@ -131,7 +131,7 @@ public class App {
 
 	private static void ajouterVoyage() {
 		//Créer un nouveau Pays
-		System.out.println("Veuillez rentrer les donées");
+		System.out.println("Veuillez rentrer les données");
 		int id=saisieInt("id");
 		String nom=saisieString("nom");
 		int restriction=saisieInt("Restriction (0 pour non et 1 pour oui)");

@@ -6,13 +6,13 @@ public class Pays {
 
 	private int id;
 	private String nom;
-	private boolean restriction;
+	private int restriction;
 	private int prixJours;
 	
 	public Pays() {
 	}
 
-	public Pays(int id, String nom, boolean restriction, int prixJours) {
+	public Pays(int id, String nom, int restriction, int prixJours) {
 		this.id = id;
 		this.nom = nom;
 		this.restriction = restriction;
@@ -35,11 +35,11 @@ public class Pays {
 		this.nom = nom;
 	}
 
-	public boolean isRestriction() {
+	public int isRestriction() {
 		return restriction;
 	}
 
-	public void setRestriction(boolean restriction) {
+	public void setRestriction(int restriction) {
 		this.restriction = restriction;
 	}
 
