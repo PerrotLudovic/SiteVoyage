@@ -179,20 +179,7 @@ public class App {
 
 	}
 
-	/*private static void creationCompte() {
-		String nom=saisieString("nom");
-		String prenom=saisieString("prenom");
-		String mail=saisieString("mail");
-		String password=saisieString("password");
-		String typeCompte="Client";
-
-		Compte c=new Compte(nom,prenom,mail,password,typeCompte);
-
-		daoCompte.insert(c);
-		compteConnected=daoCompte.checkConnect(nom, password);
-		listeVoyages();
-
-	}*/
+	
 	private static void choixReservation() {
 		List<Activite> activites=new ArrayList();
 		Activite a1=null;
