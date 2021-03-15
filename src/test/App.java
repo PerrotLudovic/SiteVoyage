@@ -258,6 +258,26 @@ public class App {
 
 		Voyageur voy=new Voyageur(id,nom,prenom);
 		*/
+	// Ajout du voyageur
+
+			String choixV = saisieString("Voulez vous ajouter un voyageur (oui/non)? ");
+			DAOVoyageur daoVoyageur=new DAOVoyageur();
+			
+				if(choixV.equals("oui")) {
+
+				int id1=saisieInt("Saisir id voyageur");
+				int idReservation=saisieInt("Saisir id réservation");
+				String nom=saisieString("Saisir nom voyageur");
+				String prenom=saisieString("Saisir prenom voyageur");
+				
+				Voyageur vy =new Voyageur(id1, idReservation, nom, prenom);
+				vy = new Voyageur(id1, idReservation, nom, prenom);
+				daoVoyageur.insert(vy);}
+
+			else if(choixActivites.equals("non")) {
+
+			}
+
 		
 		System.out.println("Récapitulatif réservation : ");
 		System.out.println(daoVoyage.findById(v.getId()));
