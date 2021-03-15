@@ -43,9 +43,6 @@ public class Reservation {
 	}
 
 
-
-
-
 	public Voyage getVoyage() {
 		return voyage;
 	}
@@ -117,17 +114,19 @@ public class Reservation {
 
 
 
-	public void setCompte(Compte idCompte) {
-		this.compte = idCompte;
+	public void setCompte(Compte compte) {
+		this.compte = compte;
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "Reservation [voyage=" + voyage + ", idCompte=" + compte + ", date=" + date + ", prix=" + prix
-				+ ", id=" + id + ", transport=" + transport + ", activites=" + activites + "]";
+		return "Reservation [voyage=" + voyage + ", compte=" + compte + ", date=" + date + ", prix=" + prix + ", id="
+				+ id + ", transport=" + transport + ", activites=" + activites + "]";
 	}
+
+
 
 
 	

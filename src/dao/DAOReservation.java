@@ -148,7 +148,7 @@ public class DAOReservation implements IDAO<Reservation, Integer>{
 
 			Connection conn=DriverManager.getConnection(chemin,login,password);
 
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO reservation VALUES(?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO reservation VALUES(?,?,?,?,?,?)"); /*Statement.RETURN_GENERATED_KEYS);*/
 			 
 			ps.setInt(1, r.getId());
 			ps.setObject(2, r.getCompte().getId());
@@ -160,15 +160,16 @@ public class DAOReservation implements IDAO<Reservation, Integer>{
 			
 			ps.executeUpdate();
 			ResultSet rs = ps.getGeneratedKeys();
-			if(rs.next()) { lastInsertId=rs.getInt(1);}
+			
+			/*if(rs.next()) { lastInsertId=rs.getInt(1);}
 			
 			
 			for (Activite a : r.getActivites()) {
-				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO reservation_activite (idReservatino,idActivite) VALUES(?,?)");
+				PreparedStatement ps2 = conn.prepareStatement("INSERT INTO reservation_activite (idReservation,idActivite) VALUES(?,?)");
 				ps2.setInt(1,lastInsertId); 
 				ps2.setInt(2,a.getId());
-				ps2.close();
-			}
+				ps2.close();*/
+				
 
 			ps.close();
 			conn.close();

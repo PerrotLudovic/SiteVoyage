@@ -184,7 +184,7 @@ public class DAOCompte implements IDAO<Compte, Integer>{
 			{ 
 				int id= rs.getInt("id");
 				String nom=rs.getString("nom");
-				String prenom=rs.getString("nom");
+				String prenom=rs.getString("Prenom");
 				String email=rs.getString("email");
 				String pass1=rs.getString("password");
 				String typeCompte=rs.getString("typeCompte");
@@ -195,7 +195,7 @@ public class DAOCompte implements IDAO<Compte, Integer>{
 
 				else {
 
-					c=new Client(id,nom,prenom,email,pass1);
+					c=new Compte(id,nom,prenom,email,pass1);
 
 				}
 

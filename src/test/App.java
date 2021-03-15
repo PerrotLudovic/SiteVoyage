@@ -86,6 +86,7 @@ public class App {
 			String password=saisieString("Saisir password ");
 
 			compteConnected=daoCompte.checkConnect(login, password);
+			System.out.println(compteConnected);
 
 			if(compteConnected instanceof Admin) {
 				System.out.println("Un plaisir de te revoir cher Admin :)");
@@ -111,7 +112,6 @@ public class App {
 		
 	private static void monCompte() {
 
-			compteConnected = null;
 			
 			System.out.println("1 - Mes informations");
 			System.out.println("2 - Voir mes reservations");
@@ -287,7 +287,7 @@ public class App {
 	
 
 		public static void main(String[] args) {
-	
+	System.out.println(daoReservation.findAll());
 			menuPrincipal();
 		}
 	}	
