@@ -85,7 +85,7 @@ public class DAOVoyageur implements IDAO<Voyageur, Integer>{
 			ps.setInt(1,v.getId());
 			ps.setString(2, v.getNom());
 			ps.setString(3, v.getPrenom());
-			ps.setInt(6, v.getIdReservation());
+			ps.setInt(4, v.getIdReservation());
 			
 			
 			ps.executeUpdate();

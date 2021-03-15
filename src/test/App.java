@@ -17,6 +17,7 @@ import metier.Activite;
 import metier.Admin;
 import metier.Client;
 import metier.Compte;
+import metier.Employe;
 import metier.Pays;
 import metier.Reservation;
 import metier.Transport;
@@ -142,18 +143,35 @@ public class App {
 		daoPays.insert(p);
 
 		// Créer le Voyage
-		System.out.println("Veuillez rentrer les donées");
+		System.out.println("Veuillez rentrer les données");
 		String debut=saisieString("date de départ");
 		String fin=saisieString("date de fin");
-		int idDestination=saisieInt("l'id du pays de destination");
-		int idDepart=saisieInt("l'id du pays de départ");
+		Voyage idDestination=selectvoyage() ;
+		Voyage idDepart=selectvoyage();
 
 
 		Voyage v=new Voyage(debut,fin,idDestination,idDepart);
 
 		daoVoyage.insert(v);
 	}
-
+	private static Voyage selectvoyage() 
+	{
+		System.out.println("Choisir un pays : ");
+		
+		List<Voyage> voyage=daoVoyage.findAll();
+		
+	
+		for(int i=0;i<voyage.size();i++) 
+		{
+			Voyage v = voyage.get(i);
+			System.out.println(i+"- "+v.getId()+"("+v.getId()+")");
+		}
+		
+		int choix=((Voyage) voyage).getDestination().(daoPays.findById(choix));
+		
+		Voyage v = voyage.get(choix);
+		return v;
+	}
 
 
 
@@ -369,13 +387,12 @@ public class App {
 			
 				if(choixV.equals("oui")) {
 
-				int id1=saisieInt("Saisir id voyageur");
-				int idReservation=saisieInt("Saisir id réservation");
+				daoReservation.findById(id);
 				String nom=saisieString("Saisir nom voyageur");
 				String prenom=saisieString("Saisir prenom voyageur");
 				
-				Voyageur vy =new Voyageur(id1, idReservation, nom, prenom);
-				vy = new Voyageur(id1, idReservation, nom, prenom);
+				Voyageur vy =new Voyageur( id, nom, prenom);
+				vy = new Voyageur(id, nom, prenom);
 				daoVoyageur.insert(vy);}
 
 			else if(choixActivites.equals("non")) {
