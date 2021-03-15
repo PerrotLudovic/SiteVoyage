@@ -121,9 +121,10 @@ public class App {
 
 			switch(choix) 
 			{
-			case 2 : System.out.println(daoReservation.findByIdCompte(compteConnected.getId())); break;
+			
 			case 1 : System.out.println(compteConnected);break;
-			case 3 : choixReservation();break;
+			case 2 : System.out.println(daoReservation.findByIdCompte(compteConnected.getId())); break;
+			case 3 : listeVoyages();break;
 			case 4: menuPrincipal();break;
 			default : System.out.println("Choix impossible !\n");
 			}
