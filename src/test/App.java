@@ -17,7 +17,6 @@ import metier.Activite;
 import metier.Admin;
 import metier.Client;
 import metier.Compte;
-import metier.Employe;
 import metier.Pays;
 import metier.Reservation;
 import metier.Transport;
@@ -123,7 +122,7 @@ public class App {
 		switch (choix) {
 		case 1: supprimerClient(); break;
 		case 2: supprimerVoyage(); break;
-		case 3: modifierVoyage(); break;
+//		case 3: modifierVoyage(); break;
 		case 4: ajouterVoyage(); break;
 		case 5: menuPrincipal(); break;
 		default : System.out.println("Choix impossible !\n");
@@ -146,36 +145,15 @@ public class App {
 		System.out.println("Veuillez rentrer les données");
 		String debut=saisieString("date de départ");
 		String fin=saisieString("date de fin");
-		Voyage idDestination=selectvoyage() ;
-		Voyage idDepart=selectvoyage();
+		Pays idDestination=daoPays.findById(p.getId()) ;
+		Pays idDepart=daoPays.findById(0);
 
 
 		Voyage v=new Voyage(debut,fin,idDestination,idDepart);
 
 		daoVoyage.insert(v);
 	}
-	private static Voyage selectvoyage() 
-	{
-		System.out.println("Choisir un pays : ");
-		
-		List<Voyage> voyage=daoVoyage.findAll();
-		
 	
-		for(int i=0;i<voyage.size();i++) 
-		{
-			Voyage v = voyage.get(i);
-			System.out.println(i+"- "+v.getId()+"("+v.getId()+")");
-		}
-		
-		int choix=((Voyage) voyage).getDestination().(daoPays.findById(choix));
-		
-		Voyage v = voyage.get(choix);
-		return v;
-	}
-
-
-
-
 	/*private static void modifierVoyage() {
 		
 		
@@ -387,12 +365,12 @@ public class App {
 			
 				if(choixV.equals("oui")) {
 
-				daoReservation.findById(id);
 				String nom=saisieString("Saisir nom voyageur");
 				String prenom=saisieString("Saisir prenom voyageur");
+				daoReservation.findById(id);
 				
-				Voyageur vy =new Voyageur( id, nom, prenom);
-				vy = new Voyageur(id, nom, prenom);
+				Voyageur vy =new Voyageur(nom, prenom,id);
+				vy = new Voyageur(nom, prenom,id);
 				daoVoyageur.insert(vy);}
 
 			else if(choixActivites.equals("non")) {

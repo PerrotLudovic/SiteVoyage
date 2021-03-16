@@ -6,11 +6,10 @@ public class Voyageur {
 	private String nom;
 	private String prenom;
 	
-	public Voyageur(int idReservation, String nom, String prenom) {
-		this.idReservation = idReservation;
+	public Voyageur( String nom, String prenom, int idReservation) {
 		this.nom = nom;
 		this.prenom = prenom;
-		
+		this.idReservation = idReservation;
 	}
 
 	public Voyageur(int id, int idReservation, String nom, String prenom) {
