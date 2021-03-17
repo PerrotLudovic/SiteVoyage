@@ -51,13 +51,6 @@ public class DAOCompteJPA implements IDAOCompte {
 		
 	}
 	
-	
-	@Override
-	public List<Compte> findAllWithAchat() {
-		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query myQuery = em.createQuery("SELECT c from Compte c join fetch c.produits ",Compte.class);
-		 return myQuery.getResultList(); 
-	}
 
 
 	@Override
@@ -70,6 +63,12 @@ public class DAOCompteJPA implements IDAOCompte {
 	public void update(Compte d) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Compte checkConnect(String nom, String password) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

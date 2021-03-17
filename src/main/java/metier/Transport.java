@@ -2,7 +2,7 @@ package metier;
 
 import javax.persistence.Entity;
 
-@Entity
+
 public enum Transport {
 	  train (100, 10), bus (50, 20), avion(170,5), bateau(90,15);
 

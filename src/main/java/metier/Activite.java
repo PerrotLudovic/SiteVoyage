@@ -1,44 +1,41 @@
 package metier;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-//test
+
 @Entity
 public class Activite {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	
 	private String libelle;
 	
-	
 	private int duree;
 	
 	@ManyToOne
-	private int idPays;
+	private Pays pays;
+	
 	@ManyToMany(mappedBy="activites")
 	private List<Reservation>reservations;
 	
 	public Activite() {
 	}
 
-	public Activite(int id, String libelle, int duree, int idPays) {
+	public Activite(int id, String libelle, int duree, Pays pays) {
 		this.id = id;
 		this.libelle = libelle;
 		this.duree = duree;
-		this.idPays = idPays;
+		this.pays = pays;
 	}
 
 	public int getId() {
@@ -65,12 +62,12 @@ public class Activite {
 		this.duree = duree;
 	}
 
-	public int getIdPays() {
-		return idPays;
+	public Pays getPays() {
+		return pays;
 	}
 
-	public void setIdPays(int idPays) {
-		this.idPays = idPays;
+	public void setPays(Pays pays) {
+		this.pays = pays;
 	}
 
 	

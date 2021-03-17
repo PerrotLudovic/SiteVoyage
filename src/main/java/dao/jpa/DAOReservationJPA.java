@@ -62,6 +62,12 @@ public class DAOReservationJPA implements IDAOReservation {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public Reservation findByCompte() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

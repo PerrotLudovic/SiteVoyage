@@ -64,3 +64,4 @@ public class DAOVoyageJPA implements IDAOVoyage {
 		// TODO Auto-generated method stub
 		
 	}
+}
