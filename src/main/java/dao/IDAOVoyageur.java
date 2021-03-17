@@ -1,5 +1,7 @@
 package dao;
 
-public interface IDAOVoyageur {
+import metier.Voyageur;
+
+public interface IDAOVoyageur extends IDAO<Voyageur,Integer> {
 
 }

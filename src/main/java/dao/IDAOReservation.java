@@ -1,5 +1,7 @@
 package dao;
 
-public interface IDAOReservation {
+import metier.Reservation;
+
+public interface IDAOReservation extends IDAO<Reservation,Integer> {
 
 }

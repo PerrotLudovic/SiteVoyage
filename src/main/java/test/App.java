@@ -17,11 +17,13 @@ import metier.Activite;
 import metier.Admin;
 import metier.Client;
 import metier.Compte;
+import metier.Hopital;
 import metier.Pays;
 import metier.Reservation;
 import metier.Transport;
 import metier.Voyage;
 import metier.Voyageur;
+import util.Context;
 //test
 public class App {
 
@@ -46,20 +48,12 @@ public class App {
 		System.out.println(message);
 		return sc.nextInt();
 	}
-	static DAOActivite daoActivite= new DAOActivite();
-	static DAOAdmin daoAdmin= new DAOAdmin();
-	static DAOClient daoClient= new DAOClient();
-	static DAOCompte daoCompte= new DAOCompte(); 
-	static DAOReservation daoReservation= new DAOReservation();
-	static DAOVoyageur daoVoyageur= new DAOVoyageur(); 
-	static DAOPays daoPays=new DAOPays();
-	static DAOVoyage daoVoyage= new DAOVoyage(); 
-	static Compte compteConnected;
+	
+
 	
 
 	private static void menuPrincipal() {
 
-		compteConnected = null;
 		System.out.println("Welcome, merci de faire un choix :");
 		System.out.println("1 - Voir la liste de nos voyages :");
 		System.out.println("2 - Se connecter");
@@ -82,19 +76,20 @@ public class App {
 		String compte1 =saisieString("Avez vous dejà un compte client ? (oui/non)");
 
 		if(compte1.equals("oui")) {
-			String login=saisieString("Nom de famille ");
+			String nom=saisieString("Nom de famille ");
 			String password=saisieString("Saisir password ");
 
-			compteConnected=daoCompte.checkConnect(login, password);
-			System.out.println(compteConnected);
+			Compte connected=Context.getInstance().getDaoCompte().checkConnect(nom, password);
+			Context.getInstance().setConnected(connected);
+			System.out.println(connected);
 
-			if(compteConnected instanceof Admin) {
+			if(connected instanceof Admin) {
 				System.out.println("Un plaisir de te revoir cher Admin :)");
 				System.out.println("Saisir une action : ");
 				menuAdmin();
 			}
 
-			else if(compteConnected instanceof Compte)
+			else if(connected instanceof Compte)
 			{ System.out.println("Bienvenue cher client :) \n");
 			monCompte();
 			}
@@ -122,7 +117,7 @@ public class App {
 		switch (choix) {
 		case 1: supprimerClient(); break;
 		case 2: supprimerVoyage(); break;
-//		case 3: modifierVoyage(); break;
+		//case 3: modifierVoyage(); break;
 		case 4: ajouterVoyage(); break;
 		case 5: menuPrincipal(); break;
 		default : System.out.println("Choix impossible !\n");
@@ -138,20 +133,19 @@ public class App {
 		int prixJours=saisieInt("prixJours");
 
 		Pays p=new Pays(id,nom,restriction,prixJours);
-
-		daoPays.insert(p);
+		Context.getInstance().getDaoPays().save(p);
 
 		// Créer le Voyage
 		System.out.println("Veuillez rentrer les données");
 		String debut=saisieString("date de départ");
 		String fin=saisieString("date de fin");
-		Pays idDestination=daoPays.findById(p.getId()) ;
-		Pays idDepart=daoPays.findById(0);
-
+		Pays idDestination=Context.getInstance().getDaoPays().findById(p.getId()) ;
+		Pays idDepart=Context.getInstance().getDaoPays().findById(0) ;
+					//idDepart=0 = FRANCE
 
 		Voyage v=new Voyage(debut,fin,idDestination,idDepart);
-
-		daoVoyage.insert(v);
+		Context.getInstance().getDaoVoyage().save(v);
+		
 	}
 	
 	/*private static void modifierVoyage() {
