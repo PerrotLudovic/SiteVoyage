@@ -8,6 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+//test
 @Entity
 public class Activite {
 	
@@ -15,10 +19,17 @@ public class Activite {
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
-	private String libelle;
-	private int duree;
-	private int idPays;
 	
+	
+	private String libelle;
+	
+	
+	private int duree;
+	
+	@ManyToOne
+	private int idPays;
+	@ManyToMany(mappedBy="activites")
+	private List<Reservation>reservations;
 	
 	public Activite() {
 	}

@@ -1,18 +1,17 @@
 package metier;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import dao.jdbc.DAOPays;
 @Entity
 public class Reservation {
 	@OneToOne
@@ -23,8 +22,9 @@ public class Reservation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
+	@Enumerated(EnumType.ORDINAL)
 	private Transport transport;
-	@OneToMany
+	@ManyToMany 
 	private List<Activite> activites;
 	
 	
