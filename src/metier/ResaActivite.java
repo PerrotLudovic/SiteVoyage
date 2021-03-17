@@ -13,10 +13,9 @@ public ResaActivite(int idReservation, int idActivite) {
 }
 
 
-public ResaActivite(int id, int idReservation, int idActivite) {
+public ResaActivite(int idActivite) {
 	super();
-	this.id=id;
-	this.idReservation = idReservation;
+	
 	this.idActivite = idActivite;
 }
 
@@ -31,6 +30,16 @@ public void setIdReservation(int idReservation) {
 }
 
 
+public int getId() {
+	return id;
+}
+
+
+public void setId(int id) {
+	this.id = id;
+}
+
+
 public int getIdActivite() {
 	return idActivite;
 }
@@ -41,14 +50,11 @@ public void setIdActivite(int idActivite) {
 }
 
 
-
-public int getId() {
-	return id;
+@Override
+public String toString() {
+	return "ResaActivite [id=" + id + ", idReservation=" + idReservation + ", idActivite=" + idActivite + "]";
 }
 
 
-public void setId(int id) {
-	this.id = id;
-}
 
 }

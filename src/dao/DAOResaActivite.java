@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import metier.Activite;
 import metier.Admin;
 import metier.Client;
 import metier.Pays;
@@ -16,10 +17,11 @@ import metier.Voyage;
 
 public class DAOResaActivite implements IDAO<ResaActivite, Integer>{
 
-
+	
+	DAOActivite daoActivite= new DAOActivite();
+	
 	public ResaActivite findById(Integer id) {
 		ResaActivite resaActivite= null;
-		DAOResaActivite daoResaActivite=new DAOResaActivite();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
@@ -88,8 +90,8 @@ public class DAOResaActivite implements IDAO<ResaActivite, Integer>{
 			Connection conn=DriverManager.getConnection(chemin,login,password);
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO reservation_activite VALUES(?,?,?)");
 			ps.setInt(1,ra.getId());
-			ps.setObject(2,ra.getIdReservation());
-			ps.setObject(3,ra.getIdActivite());
+			ps.setInt(2,ra.getIdReservation());
+			ps.setInt(3,ra.getIdActivite());
 			
 			ps.executeUpdate();
 

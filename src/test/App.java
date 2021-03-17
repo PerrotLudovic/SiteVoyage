@@ -1,6 +1,5 @@
 package test;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,14 +9,15 @@ import dao.DAOAdmin;
 import dao.DAOClient;
 import dao.DAOCompte;
 import dao.DAOPays;
+import dao.DAOResaActivite;
 import dao.DAOReservation;
 import dao.DAOVoyage;
 import dao.DAOVoyageur;
 import metier.Activite;
 import metier.Admin;
-import metier.Client;
 import metier.Compte;
 import metier.Pays;
+import metier.ResaActivite;
 import metier.Reservation;
 import metier.Transport;
 import metier.Voyage;
@@ -51,6 +51,7 @@ public class App {
 	static DAOClient daoClient= new DAOClient();
 	static DAOCompte daoCompte= new DAOCompte(); 
 	static DAOReservation daoReservation= new DAOReservation();
+	static DAOResaActivite daoResaActivite=new DAOResaActivite();
 	static DAOVoyageur daoVoyageur= new DAOVoyageur(); 
 	static DAOPays daoPays=new DAOPays();
 	static DAOVoyage daoVoyage= new DAOVoyage(); 
@@ -79,7 +80,7 @@ public class App {
 	
 	
 	private static void seConnecter() {
-		String compte1 =saisieString("Avez vous dejà un compte client ? (oui/non)");
+		String compte1 =saisieString("Avez vous dejï¿½ un compte client ? (oui/non)");
 
 		if(compte1.equals("oui")) {
 			String login=saisieString("Nom de famille ");
@@ -91,7 +92,7 @@ public class App {
 			if(compteConnected instanceof Admin) {
 				System.out.println("Un plaisir de te revoir cher Admin :)");
 				System.out.println("Saisir une action : ");
-				menuAdmin();
+				//menuAdmin();
 			}
 
 			else if(compteConnected instanceof Compte)
@@ -106,12 +107,12 @@ public class App {
 		}
 
 		else if(compte1.equals("non")) {
-			System.out.println("Saisir les données pour créer votre compte.");
+			System.out.println("Saisir les donnï¿½es pour crï¿½er votre compte.");
 			creationCompte();
 		}
 	}
 	
-	private static void menuAdmin() {
+	/*private static void menuAdmin() {
 		System.out.println("1- Supprimer un client");
 		System.out.println("2- Supprimer un voyage");
 		System.out.println("3- Modifier un voyage");
@@ -130,8 +131,8 @@ public class App {
 	}
 
 	private static void ajouterVoyage() {
-		//Créer un nouveau Pays
-		System.out.println("Veuillez rentrer les données");
+		//Crï¿½er un nouveau Pays
+		System.out.println("Veuillez rentrer les donnï¿½es");
 		int id=saisieInt("id");
 		String nom=saisieString("nom");
 		int restriction=saisieInt("Restriction (0 pour non et 1 pour oui)");
@@ -141,9 +142,9 @@ public class App {
 
 		daoPays.insert(p);
 
-		// Créer le Voyage
-		System.out.println("Veuillez rentrer les données");
-		String debut=saisieString("date de départ");
+		// Crï¿½er le Voyage
+		System.out.println("Veuillez rentrer les donnï¿½es");
+		String debut=saisieString("date de dï¿½part");
 		String fin=saisieString("date de fin");
 		Pays idDestination=daoPays.findById(p.getId()) ;
 		Pays idDepart=daoPays.findById(0);
@@ -163,9 +164,9 @@ public class App {
 
 		if (choix==1) {
 			listeVoyages();
-			int id = saisieInt("Saisir l'id du voyage à modifier");
+			int id = saisieInt("Saisir l'id du voyage ï¿½ modifier");
 			Voyage v = daoVoyage.findById(id);
-			String newDebut= saisieString("La date de départ est le : "+v.getDebut()+". Quel est la nouvelle date ?");
+			String newDebut= saisieString("La date de dï¿½part est le : "+v.getDebut()+". Quel est la nouvelle date ?");
 			v.setDebut(newDebut);
 			String newFin= saisieString("La date de fin est le : "+v.getFin()+". Quel est la nouvelle date ?");
 			v.setFin(LocalDate.parse(newFin));
@@ -187,7 +188,7 @@ public class App {
 		int choix = saisieInt("");
 
 		if (choix==1) {
-			int id = saisieInt("Saisir l'id du voyage à supprimer");
+			int id = saisieInt("Saisir l'id du voyage ï¿½ supprimer");
 			Voyage v = daoVoyage.findById(id);
 			daoVoyage.delete(v);
 		} else if (choix==2) {
@@ -206,7 +207,7 @@ public class App {
 		int choix = saisieInt("");
 
 		if (choix==1) {
-			int id = saisieInt("Saisir l'id du client à supprimer :");
+			int id = saisieInt("Saisir l'id du client ï¿½ supprimer :");
 			for(Compte  c : daoCompte.findAll())
 			{
 				System.out.println(c);
@@ -227,7 +228,7 @@ public class App {
 			
 			System.out.println("1 - Mes informations");
 			System.out.println("2 - Voir mes reservations");
-			System.out.println("3 - Retour à la liste des voyages ");
+			System.out.println("3 - Retour ï¿½ la liste des voyages ");
 			System.out.println("4 - Deconnexion ");
 			int choix = saisieInt("");
 
@@ -270,7 +271,7 @@ public class App {
 		}
 
 		System.out.println();
-		System.out.println("1-Réserver un voyage :");
+		System.out.println("1-Rï¿½server un voyage :");
 		System.out.println("2 - Retour au menu principal ");
 		int choix = saisieInt("");
 
@@ -283,7 +284,7 @@ public class App {
 			}
 
 			else if(compteConnected==null) { 
-				System.out.println("Veuillez vous connecter pour pouvoir réserver un voyage");
+				System.out.println("Veuillez vous connecter pour pouvoir rï¿½server un voyage");
 				seConnecter();
 			} break;
 
@@ -304,7 +305,8 @@ public class App {
 
 		Voyage v=daoVoyage.findById(id);
 		
-		String choixActivites=saisieString("Voulez vous réserver des activités ? (oui/non)");
+		
+		String choixActivites=saisieString("Voulez vous rï¿½server des activitï¿½s ? (oui/non)");
 		
 		if(choixActivites.equals("oui")) { 
 		
@@ -313,7 +315,7 @@ public class App {
 					System.out.println(ac);
 				}
 
-				int choix=saisieInt("Saisir id de l'activité ");
+				int choix=saisieInt("Saisir id de l'activitï¿½ ");
 				 a1=daoActivite.findById1(choix);
 				
 				
@@ -334,7 +336,7 @@ public class App {
         {
             for(Transport t : listeTransport) 
             {
-                System.out.println(t+" - "+t.getPrix()+"€ ");
+                System.out.println(t+" - "+t.getPrix()+"ï¿½ ");
             }
             choix2=saisieString("Choix de votre transport");
 
@@ -345,22 +347,12 @@ public class App {
         else if(choix1.equals("non")){
         	choixTransport=null;
         }
-		//Ajout de l'activité de la réservation
+		
+        
 	Reservation r=new Reservation(compteConnected,daoVoyage.findById(v.getId()),v.getPrixVoyage(),choixTransport);
 		
-		/*
-		id=r.getId();
 
-		System.out.println("Pour valider la réservation, veuillez rentrer les données suivantes : ");
-		String nom=saisieString("Nom : ");
-		String prenom=saisieString("Prenom : ");
-
-
-		Voyageur voy=new Voyageur(id,nom,prenom);
-		*/
-	// Ajout du voyageur
-
-			String choixV = saisieString("Voulez vous ajouter un voyageur (oui/non)? ");
+			/*String choixV = saisieString("Voulez vous ajouter un voyageur (oui/non)? ");
 			DAOVoyageur daoVoyageur=new DAOVoyageur();
 			
 				if(choixV.equals("oui")) {
@@ -373,23 +365,25 @@ public class App {
 				vy = new Voyageur(nom, prenom,id);
 				daoVoyageur.insert(vy);}
 
-			else if(choixActivites.equals("non")) {
-
-			}
+			else if(choixV.equals("non")) {
+				
+			}*/
 
 		
-		System.out.println("Récapitulatif réservation : ");
+		System.out.println("Rï¿½capitulatif rï¿½servation : ");
 		System.out.println(daoVoyage.findById(v.getId()));
-		System.out.println("Activitée choisie : "+a1.getLibelle());
+		System.out.println("Activitï¿½e choisie : "+a1.getLibelle());
 		String sauvegarde=saisieString("Voulez vous sauvegarder ? (oui/non)");
 		
 
 		if (sauvegarde.equals("oui"))
 		{
 			daoReservation.insert(r);
-			System.out.println("Reservation confirmée\n");
-			System.out.println("Détails de la réservation :");
-			System.out.println(r.getCompte()+" "+r.getVoyage()+" "+r.getActivites()+" - Prix du voyage :"+r.getPrix()+"€ TTC");
+			ResaActivite ra=new ResaActivite(a1.getId());
+			daoResaActivite.insert(ra);
+			System.out.println("Reservation confirmï¿½e\n");
+			System.out.println("Dï¿½tails de la rï¿½servation :");
+			System.out.println(r.getCompte()+" "+r.getVoyage()+" "+r.getActivites()+" - Prix du voyage :"+r.getPrix()+"ï¿½ TTC");
 			
 		}else if (sauvegarde.equals("non")) {
 				menuPrincipal();
@@ -398,13 +392,10 @@ public class App {
 				choixReservation();
 			}
 
-		
 		monCompte();
 	}
 
 	
-	
-
 		public static void main(String[] args) {
 			menuPrincipal();
 		}

@@ -12,7 +12,6 @@ import metier.Pays;
 
 public class DAOActivite implements IDAO<Activite, Integer>{
 
-	//Test	
 		public Activite findById1(Integer id) {
 			Activite activite= null;
 			try {
@@ -30,6 +29,7 @@ public class DAOActivite implements IDAO<Activite, Integer>{
 					int duree=rs.getInt("duree");
 					int idPays=rs.getInt("idPays");
 					
+					//Commentaire 
 				 activite = new Activite(id1,libelle,duree,idPays);
 				}
 				rs.close();

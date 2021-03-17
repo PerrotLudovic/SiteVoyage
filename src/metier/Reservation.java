@@ -123,7 +123,7 @@ public class Reservation {
 	@Override
 	public String toString() {
 		return "Reservation [voyage=" + voyage + ", date=" + date + ", prix=" + prix + ", id=" + id + ", transport="
-				+ transport + ", activites=" + activites + "]";
+				+ transport + ", activites=" + activites +"\n"+ "]";
 	}
 
 
