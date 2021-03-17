@@ -399,13 +399,14 @@ public class App {
 			}
 
 		
-		monCompte();
+		menuPrincipal();
 	}
 
 	
 	
 
 		public static void main(String[] args) {
+	System.out.println(daoReservation.findAll());
 			menuPrincipal();
 		}
 	}	
