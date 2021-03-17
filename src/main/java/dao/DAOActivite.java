@@ -12,7 +12,7 @@ import metier.Pays;
 
 public class DAOActivite implements IDAO<Activite, Integer>{
 
-		
+	//Test	
 		public Activite findById1(Integer id) {
 			Activite activite= null;
 			try {
