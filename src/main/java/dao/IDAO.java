@@ -11,6 +11,7 @@ public interface IDAO <T,K> {
 	public List<T> findAll();
 	public void insert(T d);
 	public void update(T d);
+	public T save(T Object);
 	public void delete(T d);
 	
 }
