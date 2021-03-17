@@ -150,4 +150,12 @@ public class DAOClient implements IDAO<Client, Integer>{
 	}
 
 
+
+	@Override
+	public Client save(Client Object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }

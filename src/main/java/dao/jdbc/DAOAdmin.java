@@ -111,5 +111,12 @@ public class DAOAdmin implements IDAO<Admin, Integer>{
 		}
 	}
 
+
+	@Override
+	public Admin save(Admin Object) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
 

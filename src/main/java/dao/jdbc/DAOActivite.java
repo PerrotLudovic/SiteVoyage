@@ -185,6 +185,14 @@ public class DAOActivite implements IDAO<Activite, Integer>{
 
 
 
+		@Override
+		public Activite save(Activite Object) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+
 	
 
 		
