@@ -215,7 +215,11 @@ public class App {
 	}
 		
 	private static void monCompte() {
+		Compte connected=Context.getInstance().getConnected();
+		Context.getInstance().setConnected(connected);
+		System.out.println(connected);
 
+		Reservation r = Context.getInstance().getDaoReservation().findByCompte();
 			
 			System.out.println("1 - Mes informations");
 			System.out.println("2 - Voir mes reservations");
@@ -226,8 +230,8 @@ public class App {
 			switch(choix) 
 			{
 			
-			case 1 : System.out.println(compteConnected);break;
-			case 2 : System.out.println(daoReservation.findByIdCompte(compteConnected.getId())); break;
+			case 1 : System.out.println(connected);break;
+			case 2 : System.out.println(r); break;
 			case 3 : listeVoyages();break;
 			case 4: menuPrincipal();break;
 			default : System.out.println("Choix impossible !\n");
@@ -246,8 +250,8 @@ public class App {
 
 		Compte c=new Compte(nom,prenom,mail,password,typeCompte);
 
-		daoCompte.insert(c);
-		compteConnected=daoCompte.checkConnect(nom, password);
+		Context.getInstance().getDaoCompte().save(c);
+		Compte connected=Context.getInstance().getDaoCompte().checkConnect(nom, password);
 		monCompte();
 
 	}
