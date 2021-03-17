@@ -4,14 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class ResaActivite {
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
-private int id;
-private int idReservation;
-private int idActivite;
+	private int id;
+	private int idReservation;
+	private int idActivite;
 
 public ResaActivite(int idReservation, int idActivite) {
 	super();

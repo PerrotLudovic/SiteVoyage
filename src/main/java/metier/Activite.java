@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 @Entity
 public class Activite {
 	
@@ -18,7 +19,8 @@ public class Activite {
 	private String libelle;
 	private int duree;
 	private int idPays;
-	
+	@ManyToMany(mappedBy="activites")
+	private List<Reservation>reservations;
 	
 	public Activite() {
 	}
