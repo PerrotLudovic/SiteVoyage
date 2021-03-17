@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.DAOPays;
+import dao.jdbc.DAOPays;
 
 public class Reservation {
 	private Voyage voyage;
