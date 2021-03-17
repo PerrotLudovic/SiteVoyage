@@ -1,20 +1,22 @@
 package metier;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@DiscriminatorColumn(name="typeCompte")
 public class Compte {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected int id;
 	protected String nom;
 	protected String prenom;
 	protected String email;
 	protected String password;
-	protected String typeCompte;
+	
 
 	
 	public Compte() {
@@ -29,12 +31,12 @@ public class Compte {
 		
 	}
 
-	public Compte(String nom, String prenom, String email, String password, String typeCompte) {
+	public Compte(String nom, String prenom, String email, String password) {
 		this.nom = nom;
 		this.prenom=prenom;
 		this.email = email;
 		this.password = password;
-		this.typeCompte=typeCompte;
+		
 	}
 	
 	public String getPrenom() {
@@ -45,13 +47,7 @@ public class Compte {
 		this.prenom = prenom;
 	}
 	
-	public String getTypeCompte() {
-		return typeCompte;
-	}
 
-	public void setTypeCompte(String typeCompte) {
-		this.typeCompte = typeCompte;
-	}
 
 	public int getId() {
 		return id;

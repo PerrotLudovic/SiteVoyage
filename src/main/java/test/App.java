@@ -5,17 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import dao.jdbc.DAOActivite;
-import dao.jdbc.DAOAdmin;
-import dao.jdbc.DAOClient;
-import dao.jdbc.DAOCompte;
-import dao.jdbc.DAOPays;
-import dao.jdbc.DAOReservation;
-import dao.jdbc.DAOVoyage;
 import dao.jdbc.DAOVoyageur;
 import metier.Activite;
 import metier.Admin;
-import metier.Client;
 import metier.Compte;
 import metier.Pays;
 import metier.Reservation;
@@ -23,7 +15,7 @@ import metier.Transport;
 import metier.Voyage;
 import metier.Voyageur;
 import util.Context;
-//test
+
 public class App {
 
 
@@ -246,9 +238,9 @@ public class App {
 		String prenom=saisieString("prenom");
 		String mail=saisieString("mail");
 		String password=saisieString("password");
-		String typeCompte="Client";
+		
 
-		Compte c=new Compte(nom,prenom,mail,password,typeCompte);
+		Compte c=new Compte(nom,prenom,mail,password);
 
 		Context.getInstance().getDaoCompte().save(c);
 		Compte connected=Context.getInstance().getDaoCompte().checkConnect(nom, password);

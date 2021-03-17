@@ -2,6 +2,7 @@ package metier;
 
 import java.time.LocalDate;
 import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,20 +10,23 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Reservation {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 	@OneToOne
 	private Voyage voyage;
+	@ManyToOne
 	private Compte compte;
 	private LocalDate date;
 	private double prix;
-	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
-	private int id;
-	@Enumerated(EnumType.ORDINAL)
+	
+	@Enumerated(EnumType.STRING)
 	private Transport transport;
 	@ManyToMany 
 	private List<Activite> activites;

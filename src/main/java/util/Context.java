@@ -8,7 +8,6 @@ import dao.IDAOAdmin;
 import dao.IDAOClient;
 import dao.IDAOCompte;
 import dao.IDAOPays;
-import dao.IDAOResaActivite;
 import dao.IDAOReservation;
 import dao.IDAOVoyage;
 import dao.IDAOVoyageur;
@@ -17,7 +16,6 @@ import dao.jpa.DAOAdminJPA;
 import dao.jpa.DAOClientJPA;
 import dao.jpa.DAOCompteJPA;
 import dao.jpa.DAOPaysJPA;
-import dao.jpa.DAOResaActiviteJPA;
 import dao.jpa.DAOReservationJPA;
 import dao.jpa.DAOVoyageJPA;
 import dao.jpa.DAOVoyageurJPA;
@@ -35,7 +33,6 @@ public class Context {
 	private IDAOClient daoClient=new DAOClientJPA();
 	private IDAOCompte daoCompte=new DAOCompteJPA();
 	private IDAOPays daoPays=new DAOPaysJPA();
-	private IDAOResaActivite daoResaActivite=new DAOResaActiviteJPA();
 	private IDAOReservation daoReservation=new DAOReservationJPA();
 	private IDAOVoyage daoVoyage=new DAOVoyageJPA();
 	private IDAOVoyageur daoVoyageur = new DAOVoyageurJPA();
@@ -107,15 +104,6 @@ public class Context {
 		this.daoPays = daoPays;
 	}
 
-
-	public IDAOResaActivite getDaoResaActivite() {
-		return daoResaActivite;
-	}
-
-
-	public void setDaoResaActivite(IDAOResaActivite daoResaActivite) {
-		this.daoResaActivite = daoResaActivite;
-	}
 
 
 	public IDAOReservation getDaoReservation() {
