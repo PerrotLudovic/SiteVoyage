@@ -42,11 +42,6 @@ public class Voyage {
 		this.prixVoyage = destination.getPrixJours()*(this.fin.compareTo(this.debut));
 	}
 
-
-	
-
-
-
 	public LocalDate getFin() {
 		return fin;
 	}

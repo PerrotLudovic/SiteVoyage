@@ -43,9 +43,6 @@ public class Context {
 	private Context() 
 	{	}
 	
-	
-
-
 	public EntityManagerFactory getEmf() {
 		return emf;
 	}

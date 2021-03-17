@@ -17,7 +17,6 @@ import metier.Activite;
 import metier.Admin;
 import metier.Client;
 import metier.Compte;
-import metier.Hopital;
 import metier.Pays;
 import metier.Reservation;
 import metier.Transport;
@@ -117,7 +116,7 @@ public class App {
 		switch (choix) {
 		case 1: supprimerClient(); break;
 		case 2: supprimerVoyage(); break;
-		//case 3: modifierVoyage(); break;
+		case 3: modifierVoyage(); break;
 		case 4: ajouterVoyage(); break;
 		case 5: menuPrincipal(); break;
 		default : System.out.println("Choix impossible !\n");
@@ -148,7 +147,7 @@ public class App {
 		
 	}
 	
-	/*private static void modifierVoyage() {
+	private static void modifierVoyage() {
 		
 		
 		System.out.println("1-Modifier");
@@ -158,13 +157,12 @@ public class App {
 		if (choix==1) {
 			listeVoyages();
 			int id = saisieInt("Saisir l'id du voyage à modifier");
-			Voyage v = daoVoyage.findById(id);
+			Voyage v = Context.getInstance().getDaoVoyage().findById(id);
 			String newDebut= saisieString("La date de départ est le : "+v.getDebut()+". Quel est la nouvelle date ?");
-			v.setDebut(newDebut);
+				v.setDebut(LocalDate.parse(newDebut));
 			String newFin= saisieString("La date de fin est le : "+v.getFin()+". Quel est la nouvelle date ?");
-			v.setFin(LocalDate.parse(newFin));
-			
-			daoVoyage.update(v);
+				v.setFin(LocalDate.parse(newFin));
+			Context.getInstance().getDaoVoyage().save(v);
 			
 		} else if (choix==2) {
 			menuPrincipal();
@@ -172,7 +170,7 @@ public class App {
 			System.out.println("Erreur saisie, selectionner 1 ou 2");
 		}
 
-	}*/
+	}
 
 	private static void supprimerVoyage() {
 		listeVoyages();
@@ -182,8 +180,8 @@ public class App {
 
 		if (choix==1) {
 			int id = saisieInt("Saisir l'id du voyage à supprimer");
-			Voyage v = daoVoyage.findById(id);
-			daoVoyage.delete(v);
+			Voyage v = Context.getInstance().getDaoVoyage().findById(id);
+			Context.getInstance().getDaoVoyage().delete(v);
 		} else if (choix==2) {
 			menuPrincipal();
 		}else {
@@ -201,13 +199,13 @@ public class App {
 
 		if (choix==1) {
 			int id = saisieInt("Saisir l'id du client à supprimer :");
-			for(Compte  c : daoCompte.findAll())
+			for(Compte  c : Context.getInstance().getDaoClient().findAll())
 			{
 				System.out.println(c);
 			}
 
-			Compte c = daoCompte.findById(id);
-			daoCompte.delete(c);
+			Compte c = Context.getInstance().getDaoCompte().findById(id);
+			Context.getInstance().getDaoCompte().delete(c);
 
 		} else if (choix==2) {
 			menuPrincipal();
