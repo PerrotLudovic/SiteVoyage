@@ -1,6 +1,14 @@
 package metier;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Compte {
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	protected int id;
 	protected String nom;
 	protected String prenom;

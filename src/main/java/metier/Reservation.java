@@ -5,15 +5,26 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.jdbc.DAOPays;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
+import dao.jdbc.DAOPays;
+@Entity
 public class Reservation {
+	@OneToOne
 	private Voyage voyage;
 	private Compte compte;
 	private LocalDate date;
 	private double prix;
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
 	private Transport transport;
+	@OneToMany
 	private List<Activite> activites;
 	
 	

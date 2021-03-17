@@ -1,7 +1,14 @@
 package metier;
 
-public class ResaActivite {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class ResaActivite {
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
 private int id;
 private int idReservation;
 private int idActivite;
@@ -10,6 +17,10 @@ public ResaActivite(int idReservation, int idActivite) {
 	super();
 	this.idReservation = idReservation;
 	this.idActivite = idActivite;
+}
+
+
+public ResaActivite() {
 }
 
 

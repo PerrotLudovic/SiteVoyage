@@ -3,10 +3,17 @@ package metier;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
 public class Activite {
 	
 	
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
 	private String libelle;
 	private int duree;
