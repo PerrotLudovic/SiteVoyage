@@ -1,16 +1,32 @@
 package metier;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Voyageur {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
 	private int idReservation;
 	private String nom;
 	private String prenom;
+	
+	public Voyageur() {
+	}
 	
 	public Voyageur( String nom, String prenom, int idReservation) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.idReservation = idReservation;
 	}
+	
+
+	
+
 
 	public Voyageur(int id, int idReservation, String nom, String prenom) {
 		this.id = id;
