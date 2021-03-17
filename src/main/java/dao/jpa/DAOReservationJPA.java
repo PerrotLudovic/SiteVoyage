@@ -64,11 +64,14 @@ public class DAOReservationJPA implements IDAOReservation {
 	}
 
 	@Override
-	public Reservation findByCompte() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Reservation> findByCompte(int idCompte) {
+		EntityManager em=Context.getInstance().getEmf().createEntityManager();
+		Query myQuery=em.createQuery("from Reservation r where r.idCompte=:idCompte",Reservation.class);
+		myQuery.setParameter("idCompte", idCompte);
+		return myQuery.getResultList();
+		
+		
 	}
-	
 	
 	
 

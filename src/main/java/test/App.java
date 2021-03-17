@@ -211,7 +211,7 @@ public class App {
 		Context.getInstance().setConnected(connected);
 		System.out.println(connected);
 
-		Reservation r = Context.getInstance().getDaoReservation().findByCompte();
+		List <Reservation> r = Context.getInstance().getDaoReservation().findByCompte(connected.getId());
 			
 			System.out.println("1 - Mes informations");
 			System.out.println("2 - Voir mes reservations");
@@ -223,7 +223,10 @@ public class App {
 			{
 			
 			case 1 : System.out.println(connected);break;
-			case 2 : System.out.println(r); break;
+			case 2 : 
+				for(Reservation resa:r) {
+					System.out.println(r);
+				}break;
 			case 3 : listeVoyages();break;
 			case 4: menuPrincipal();break;
 			default : System.out.println("Choix impossible !\n");
