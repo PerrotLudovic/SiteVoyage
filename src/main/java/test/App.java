@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import dao.jdbc.DAOVoyageur;
 import metier.Activite;
 import metier.Admin;
 import metier.Compte;
@@ -14,6 +13,7 @@ import metier.Reservation;
 import metier.Transport;
 import metier.Voyage;
 import metier.Voyageur;
+import metier.Client;
 import util.Context;
 
 public class App {
@@ -43,8 +43,17 @@ public class App {
 
 	
 
-	private static void menuPrincipal() {
 
+	private static void menuPrincipal() {
+		
+		List<Client> clientsDuSite = Context.getInstance().getDaoClient().findAll();
+		
+		for(Client c : clientsDuSite) 
+		{
+			System.out.println(c);
+			
+		}
+		
 		System.out.println("Welcome, merci de faire un choix :");
 		System.out.println("1 - Voir la liste de nos voyages :");
 		System.out.println("2 - Se connecter");
@@ -210,7 +219,7 @@ public class App {
 		Compte connected=Context.getInstance().getConnected();
 		Context.getInstance().setConnected(connected);
 
-		//List <Reservation> r = Context.getInstance().getDaoReservation().findByCompte(connected);
+		List <Reservation> r = Context.getInstance().getDaoReservation().findByCompte(connected);
 			
 			System.out.println("1 - Mes informations");
 			System.out.println("2 - Voir mes reservations");
@@ -223,9 +232,9 @@ public class App {
 			
 			case 1 : System.out.println(connected);break;
 			case 2 : 
-				/*for(Reservation resa:r) {
+				for(Reservation resa:r) {
 					System.out.println(resa);
-				}*/break;
+				}break;
 			case 3 : listeVoyages();break;
 			case 4: menuPrincipal();break;
 			default : System.out.println("Choix impossible !\n");

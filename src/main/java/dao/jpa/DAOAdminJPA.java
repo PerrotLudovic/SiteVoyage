@@ -24,7 +24,7 @@ public class DAOAdminJPA implements IDAOAdmin {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		Query myQuery=em.createQuery("SELECT a from Admin a",Admin.class);
 		
-		return null;
+		return myQuery.getResultList();
 	
 	}
 
