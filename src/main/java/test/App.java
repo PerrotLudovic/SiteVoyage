@@ -313,6 +313,7 @@ public class App {
 
 
 	private static void choixReservation() {
+		Voyage v = new Voyage();
 		List<Activite> activites=new ArrayList();
 		Activite a1=null;
 
