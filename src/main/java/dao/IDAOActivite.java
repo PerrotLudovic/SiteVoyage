@@ -3,9 +3,11 @@ package dao;
 import java.util.List;
 
 import metier.Activite;
+import metier.Pays;
 
 public interface IDAOActivite extends IDAO<Activite,Integer> {
 
-	List<Activite> findByIdPays(int id);
+	public List<Activite> findByIdPays(Pays pays);
+
 
 }

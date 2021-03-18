@@ -7,6 +7,8 @@ import javax.persistence.Query;
 
 import dao.IDAOActivite;
 import metier.Activite;
+import metier.Pays;
+import metier.Reservation;
 import util.Context;
 
 public class DAOActiviteJPA implements IDAOActivite{
@@ -67,15 +69,19 @@ public class DAOActiviteJPA implements IDAOActivite{
 	}
 
 	@Override
-	public List<Activite> findByIdPays(int id) {
+	public List<Activite> findByIdPays(Pays pays) {
 
 	{ 
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query myQuery = em.createQuery("SELECT a from Activite a join fetch a.IdPays ",Activite.class);
-		 return myQuery.getResultList();
+		/*Query myQuery=em.createQuery("SELECT r from Reservation r WHERE r.compte.id=:id",Reservation.class);
+		 * Query myQuery=em.createQuery("SELECT a from Reservation r WHERE r.compte.id=:id",Reservation.class);*/
+		Query myQuery = em.createQuery("SELECT a from Activite a WHERE a.pays.id=:id",Activite.class);
+		 myQuery.setParameter("id",pays.getId());
+		return myQuery.getResultList();
 	
 	}
 
+	
 
 }}
 
