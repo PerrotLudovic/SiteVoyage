@@ -50,14 +50,6 @@ public class DAOPaysJPA implements IDAOPays {
 		
 	}
 	
-	
-	@Override
-	public List<Pays> findAllWithAchat() {
-		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query myQuery = em.createQuery("SELECT c from Pays c join fetch c.produits ",Pays.class);
-		 return myQuery.getResultList(); 
-	}
-
 
 	@Override
 	public void insert(Pays d) {

@@ -67,8 +67,12 @@ public class DAOCompteJPA implements IDAOCompte {
 
 	@Override
 	public Compte checkConnect(String nom, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
+		Query myQuery=em.createQuery("SELECT c from Compte c WHERE c.nom=:nom AND c.password=:pass",Compte.class);
+		myQuery.setParameter("nom",nom);
+		myQuery.setParameter("pass",password);
+		return (Compte) myQuery.getSingleResult();
+		
 	}
 
 	
