@@ -8,6 +8,8 @@ import javax.persistence.Id;
 @Entity
 public class Voyageur {
 	
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -70,7 +72,10 @@ public class Voyageur {
 		this.prenom = prenom;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Voyageur [nom=" + nom + ", prenom=" + prenom + "]";
+	}
 	
 	
 

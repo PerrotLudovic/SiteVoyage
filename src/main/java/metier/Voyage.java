@@ -111,10 +111,13 @@ public class Voyage {
 	}
 
 
+
 	@Override
 	public String toString() {
-		return "Voyage [id=" + id +", debut="+ debut +", destination=" + destination + ", départ=" + depart +"]";
+		return "Voyage [id=" + id + ", debut=" + debut + ", fin=" + fin + ", destination=" + destination + ", depart="
+				+ depart + ", prixVoyage=" + prixVoyage + "]";
 	}
-	
+
+
 	
 }
