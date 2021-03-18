@@ -17,7 +17,7 @@ public class test {
 		Pays p1 = new Pays("France", 35, 0);
 		Pays p2 = new Pays("Russie", 25, 0);
 		Pays p3 = new Pays("Tenerife", 15, 0);
-		Pays p4 = new Pays("Norv�ge", 45, 0);
+		Pays p4 = new Pays("Norvege", 45, 0);
 		Pays p5 = new Pays("Maroc", 40, 0);
 		Pays p6 = new Pays("Japon", 45, 0);
 		
@@ -39,41 +39,40 @@ public class test {
 		
 		activite1=Context.getInstance().getDaoActivite().save(activite1);
 
-		Context.getInstance().closeEmf();
+	
 
 
-		Activite activite2 = new Activite("Atelier shushi",2,Context.getInstance().getDaoPays().findById(6));
+		Activite activite2 = new Activite("Atelier sushi",2,Context.getInstance().getDaoPays().findById(6));
 
 		activite2=Context.getInstance().getDaoActivite().save(activite2);
 
-		Context.getInstance().closeEmf();
+		
 
 
 		Activite activite3 = new Activite("Kayak dans les Fjords",5,Context.getInstance().getDaoPays().findById(4));
 
 		activite3=Context.getInstance().getDaoActivite().save(activite3);
 
-		Context.getInstance().closeEmf();
+	
 
-
-		Activite activite4 = new Activite("Visite d'un �levage de saumon",3,Context.getInstance().getDaoPays().findById(4));
+		Activite activite4 = new Activite("Visite d'un elevage de saumon",3,Context.getInstance().getDaoPays().findById(4));
 
 		activite4=Context.getInstance().getDaoActivite().save(activite4);
 
-		Context.getInstance().closeEmf();
+		
 
 
 		Admin admin = new Admin(1,"admin","admin","admin@gmail.fr","admin");
 
 		admin=Context.getInstance().getDaoAdmin().save(admin);
 
-		Context.getInstance().closeEmf();
+	
 
 		Client client = new Client(2,"dupont","dupont","dupont@gmail.com","dup");
 
 		client=Context.getInstance().getDaoClient().save(client);
 
-		Context.getInstance().closeEmf();
+		
 
 
 
