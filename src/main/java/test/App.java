@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import metier.Activite;
 import metier.Admin;
+import metier.Client;
 import metier.Compte;
 import metier.Pays;
 import metier.Reservation;
@@ -156,7 +157,7 @@ public class App {
 		int choix = saisieInt("");
 
 		if (choix==1) {
-			listeVoyages();
+			
 			int id = saisieInt("Saisir l'id du voyage à modifier");
 			Voyage v = Context.getInstance().getDaoVoyage().findById(id);
 			String newDebut= saisieString("La date de départ est le : "+v.getDebut()+". Quel est la nouvelle date ?");
@@ -174,12 +175,18 @@ public class App {
 	}
 
 	private static void supprimerVoyage() {
-		listeVoyages();
+		
 		System.out.println("1-Supprimer");
 		System.out.println("2-Retour menu admin");
 		int choix = saisieInt("");
 
 		if (choix==1) {
+			List <Voyage> v2=Context.getInstance().getDaoVoyage().findAll();
+			for(Voyage  voyages : v2)
+			{
+				System.out.println(voyages);
+			}
+			
 			int id = saisieInt("Saisir l'id du voyage à supprimer");
 			Voyage v = Context.getInstance().getDaoVoyage().findById(id);
 			Context.getInstance().getDaoVoyage().delete(v);
@@ -199,12 +206,13 @@ public class App {
 		int choix = saisieInt("");
 
 		if (choix==1) {
-			int id = saisieInt("Saisir l'id du client à supprimer :");
-			for(Compte  c : Context.getInstance().getDaoClient().findAll())
+			List <Client> c2=Context.getInstance().getDaoClient().findAll();
+			for(Compte  clients : c2)
 			{
-				System.out.println(c);
+				System.out.println(clients);
 			}
-
+			
+			int id = saisieInt("Saisir l'id du client à supprimer :");
 			Compte c = Context.getInstance().getDaoCompte().findById(id);
 			Context.getInstance().getDaoCompte().delete(c);
 
@@ -255,7 +263,8 @@ public class App {
 		Context.getInstance().getDaoCompte().save(c);
 		
 		Compte connected=c;
-			//Context.getInstance().getDaoCompte().checkConnect(nom, password);
+		Context.getInstance().getDaoCompte().checkConnect(nom, password);
+		Context.getInstance().setConnected(connected);
 		monCompte();
 
 	}
