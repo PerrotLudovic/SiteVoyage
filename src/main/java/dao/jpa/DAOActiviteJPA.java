@@ -7,8 +7,6 @@ import javax.persistence.Query;
 
 import dao.IDAOActivite;
 import metier.Activite;
-import model.Client;
-import model.Produit;
 import util.Context;
 
 public class DAOActiviteJPA implements IDAOActivite{
