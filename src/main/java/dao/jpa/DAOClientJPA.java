@@ -25,7 +25,8 @@ public class DAOClientJPA implements IDAOClient {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		Query myQuery=em.createQuery("SELECT a from Client a",Client.class);
 		
-		return null;
+		return myQuery.getResultList();
+		
 	
 	}
 
