@@ -10,7 +10,7 @@ import metier.Activite;
 import util.Context;
 
 public class DAOActiviteJPA implements IDAOActivite{
-	
+
 	@Override
 	public Activite findById(Integer id) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
@@ -24,7 +24,7 @@ public class DAOActiviteJPA implements IDAOActivite{
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		Query myQuery=em.createQuery("SELECT a from Activite a",Activite.class);
 		
-		return null;
+		return myQuery.getResultList();
 	
 	}
 
@@ -32,9 +32,9 @@ public class DAOActiviteJPA implements IDAOActivite{
 	public Activite save(Activite activite) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
-		
+
 		activite=em.merge(activite);
-		
+
 		em.getTransaction().commit();
 		em.close();
 		return activite;
@@ -42,39 +42,43 @@ public class DAOActiviteJPA implements IDAOActivite{
 
 	@Override
 	public void delete(Activite activite) {
-		
+
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();
-		
+
 		activite=em.merge(activite);
 		em.remove(activite);
-		
+
 		em.getTransaction().commit();
 		em.close();
-		
+
 	}
 
 	@Override
 	public void insert(Activite d) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void update(Activite d) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public List<Activite> findByIdPays(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-
-	}
-
-
+	{ 
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
+		Query myQuery = em.createQuery("SELECT a from Activite a join fetch a.IdPays ",Activite.class);
+		 return myQuery.getResultList();
 	
+	}
+
+
+}}
+
+
+
 

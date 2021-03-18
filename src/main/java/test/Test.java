@@ -73,6 +73,9 @@ public class Test {
 
 		client=Context.getInstance().getDaoClient().save(client);
 
+		Client client2 = new Client(3,"jacques","moris","jm@gmail.com","jm");
+
+		client2=Context.getInstance().getDaoClient().save(client2);
 		
 
 
