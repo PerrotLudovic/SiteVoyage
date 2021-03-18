@@ -24,6 +24,13 @@ public class Pays {
 		this.restriction = restriction;
 		this.prixJours=prixJours;
 	}
+	
+	public Pays(String nom, int restriction, int prixJours) {
+		
+		this.nom = nom;
+		this.restriction = restriction;
+		this.prixJours=prixJours;
+	}
 
 	public int getId() {
 		return id;

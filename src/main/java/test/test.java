@@ -5,9 +5,35 @@ import metier.Admin;
 import metier.Client;
 import util.Context;
 
+import metier.Voyage;
+import util.Context;
+import metier.Pays;
+
+
 public class test {
 
 	public static void main(String[] args) {
+		
+		Pays p1 = new Pays("France", 35, 0);
+		Pays p2 = new Pays("Russie", 25, 0);
+		Pays p3 = new Pays("Tenerife", 15, 0);
+		Pays p4 = new Pays("Norvï¿½ge", 45, 0);
+		Pays p5 = new Pays("Maroc", 40, 0);
+		Pays p6 = new Pays("Japon", 45, 0);
+		
+		p1=Context.getInstance().getDaoPays().save(p1);
+		p2=Context.getInstance().getDaoPays().save(p2);
+		p3=Context.getInstance().getDaoPays().save(p3);
+		p4=Context.getInstance().getDaoPays().save(p4);
+		p5=Context.getInstance().getDaoPays().save(p5);
+		
+		Voyage voyage1 = new Voyage("2021-07-15","2021-07-15",	Context.getInstance().getDaoPays().findById(1),	Context.getInstance().getDaoPays().findById(5));
+		Voyage voyage2 = new Voyage("2021-07-15","2021-07-15", Context.getInstance().getDaoPays().findById(1),	Context.getInstance().getDaoPays().findById(4));
+		
+		voyage1=Context.getInstance().getDaoVoyage().save(voyage1);
+		voyage2=Context.getInstance().getDaoVoyage().save(voyage2);
+		
+		
 
 		Activite activite1 = new Activite("Balade en Dromadaire",2,Context.getInstance().getDaoPays().findById(5));
 		
@@ -30,7 +56,7 @@ public class test {
 		Context.getInstance().closeEmf();
 
 
-		Activite activite4 = new Activite("Visite d'un élevage de saumon",3,Context.getInstance().getDaoPays().findById(4));
+		Activite activite4 = new Activite("Visite d'un ï¿½levage de saumon",3,Context.getInstance().getDaoPays().findById(4));
 
 		activite4=Context.getInstance().getDaoActivite().save(activite4);
 
@@ -50,6 +76,10 @@ public class test {
 		Context.getInstance().closeEmf();
 
 
+
+        Context.getInstance().closeEmf();
+		
+		
 
 	}
 
