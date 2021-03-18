@@ -34,7 +34,8 @@ public class Test {
 		voyage1=Context.getInstance().getDaoVoyage().save(voyage1);
 		voyage2=Context.getInstance().getDaoVoyage().save(voyage2);
 		
-		
+		Activite activite0 = new Activite("Pas d'activité",0,Context.getInstance().getDaoPays().findById(1));
+		activite0=Context.getInstance().getDaoActivite().save(activite0);
 
 		Activite activite1 = new Activite("Balade en Dromadaire",2,Context.getInstance().getDaoPays().findById(5));
 		

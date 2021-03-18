@@ -66,7 +66,7 @@ public class Pays {
 	
 	@Override
 	public String toString() {
-		return "Pays [id=" + id + ", nom=" + nom + ", restriction=" + restriction + ", prixJours=" + prixJours + "]";
+		return "Pays [id=" + id + ", nom=" + nom + ", prixJours=" + prixJours + "]";
 	}
 
 }
