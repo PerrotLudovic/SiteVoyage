@@ -37,6 +37,13 @@ public class Activite {
 		this.duree = duree;
 		this.pays = pays;
 	}
+	
+	public Activite(String libelle, int duree, Pays pays) {
+		this.libelle = libelle;
+		this.duree = duree;
+		this.pays = pays;
+	}
+
 
 	public int getId() {
 		return id;
