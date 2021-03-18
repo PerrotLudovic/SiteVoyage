@@ -7,6 +7,6 @@ import metier.Reservation;
 
 public interface IDAOReservation extends IDAO<Reservation,Integer> {
 
-	List<Reservation> findByCompte(Compte id);
+	public List<Reservation> findByCompte(Compte idCompte);
 
 }

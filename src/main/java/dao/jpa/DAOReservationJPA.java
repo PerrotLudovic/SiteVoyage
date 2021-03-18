@@ -33,7 +33,6 @@ public class DAOReservationJPA implements IDAOReservation {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		em.getTransaction().begin();		
 		reservation=em.merge(reservation);
-		
 		em.getTransaction().commit();
 		em.close();
 		return reservation;
@@ -66,12 +65,11 @@ public class DAOReservationJPA implements IDAOReservation {
 	}
 
 	@Override
-	public List<Reservation> findByCompte(Compte id) {
+	public List<Reservation> findByCompte(Compte compte) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query myQuery=em.createQuery("SELECT r from Reservation r join fetch r.id",Reservation.class);
-		return  myQuery.getResultList();
-		
-		
+		Query myQuery=em.createQuery("SELECT r from Reservation r WHERE r.compte.id=:id",Reservation.class);
+		myQuery.setParameter("id",compte.getId());
+		return (List<Reservation>) myQuery.getResultList();
 		
 	}
 	
