@@ -35,6 +35,7 @@ public class Voyage {
 		this.destination = destination;
 		this.depart = depart;
 		this.prixVoyage = destination.getPrixJours()*(this.fin.compareTo(this.debut));
+		
 	}
 
 	public Voyage(String debut, String fin, Pays destination, Pays depart) {
@@ -44,6 +45,7 @@ public class Voyage {
 		this.destination = destination;
 		this.depart = depart;
 		this.prixVoyage = destination.getPrixJours()*(this.fin.compareTo(this.debut));
+		
 	}
 
 	public LocalDate getFin() {

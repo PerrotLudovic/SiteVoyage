@@ -18,14 +18,14 @@ public class Pays {
 	public Pays() {
 	}
 
-	public Pays(int id, String nom, int restriction, int prixJours) {
+	public Pays(int id, String nom,int prixJours, int restriction) {
 		this.id = id;
 		this.nom = nom;
 		this.restriction = restriction;
 		this.prixJours=prixJours;
 	}
 	
-	public Pays(String nom, int restriction, int prixJours) {
+	public Pays(String nom, int prixJours, int restriction) {
 		
 		this.nom = nom;
 		this.restriction = restriction;

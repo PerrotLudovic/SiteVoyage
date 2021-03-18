@@ -10,7 +10,7 @@ import util.Context;
 import metier.Pays;
 
 
-public class test {
+public class Test {
 
 	public static void main(String[] args) {
 		
@@ -27,8 +27,9 @@ public class test {
 		p4=Context.getInstance().getDaoPays().save(p4);
 		p5=Context.getInstance().getDaoPays().save(p5);
 		
-		Voyage voyage1 = new Voyage("2021-07-15","2021-07-15",	Context.getInstance().getDaoPays().findById(1),	Context.getInstance().getDaoPays().findById(5));
-		Voyage voyage2 = new Voyage("2021-07-15","2021-07-15", Context.getInstance().getDaoPays().findById(1),	Context.getInstance().getDaoPays().findById(4));
+		System.out.println(Context.getInstance().getDaoPays().findById(5));
+		Voyage voyage1 = new Voyage("2021-07-15","2021-07-30",	Context.getInstance().getDaoPays().findById(1),	Context.getInstance().getDaoPays().findById(5));
+		Voyage voyage2 = new Voyage("2021-07-15","2021-07-16", Context.getInstance().getDaoPays().findById(1),	Context.getInstance().getDaoPays().findById(4));
 		
 		voyage1=Context.getInstance().getDaoVoyage().save(voyage1);
 		voyage2=Context.getInstance().getDaoVoyage().save(voyage2);
