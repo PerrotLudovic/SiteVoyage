@@ -209,9 +209,8 @@ public class App {
 	private static void monCompte() {
 		Compte connected=Context.getInstance().getConnected();
 		Context.getInstance().setConnected(connected);
-		System.out.println(connected);
 
-		List <Reservation> r = Context.getInstance().getDaoReservation().findByCompte(connected.getId());
+		//List <Reservation> r = Context.getInstance().getDaoReservation().findByCompte(connected);
 			
 			System.out.println("1 - Mes informations");
 			System.out.println("2 - Voir mes reservations");
@@ -224,9 +223,9 @@ public class App {
 			
 			case 1 : System.out.println(connected);break;
 			case 2 : 
-				for(Reservation resa:r) {
-					System.out.println(r);
-				}break;
+				/*for(Reservation resa:r) {
+					System.out.println(resa);
+				}*/break;
 			case 3 : listeVoyages();break;
 			case 4: menuPrincipal();break;
 			default : System.out.println("Choix impossible !\n");
@@ -244,9 +243,10 @@ public class App {
 		
 
 		Compte c=new Compte(nom,prenom,mail,password);
-
 		Context.getInstance().getDaoCompte().save(c);
-		Compte connected=Context.getInstance().getDaoCompte().checkConnect(nom, password);
+		
+		Compte connected=c;
+			//Context.getInstance().getDaoCompte().checkConnect(nom, password);
 		monCompte();
 
 	}
@@ -355,7 +355,6 @@ public class App {
 	// Ajout du voyageur
 
 			String choixV = saisieString("Voulez vous ajouter un voyageur (oui/non)? ");
-			DAOVoyageur daoVoyageur=new DAOVoyageur();
 			
 				if(choixV.equals("oui")) {
 
@@ -365,7 +364,7 @@ public class App {
 				
 				Voyageur vy =new Voyageur(nom, prenom,id);
 				vy = new Voyageur(nom, prenom,id);
-				daoVoyageur.insert(vy);}
+				Context.getInstance().getDaoVoyageur().insert(vy);}
 
 			else if(choixActivites.equals("non")) {
 
@@ -374,16 +373,16 @@ public class App {
 		
 		System.out.println("Récapitulatif réservation : ");
 		System.out.println(Context.getInstance().getDaoVoyage().findById(v.getId()));
-		System.out.println("Activitée choisie : "+a1.getLibelle());
+		//System.out.println("Activitée choisie : "+a1.getLibelle());
 		String sauvegarde=saisieString("Voulez vous sauvegarder ? (oui/non)");
 		
 
 		if (sauvegarde.equals("oui"))
 		{
-			Context.getInstance().getDaoReservation().insert(r);
+			Context.getInstance().getDaoReservation().save(r);
 			System.out.println("Reservation confirmée\n");
 			System.out.println("Détails de la réservation :");
-			System.out.println(r.getCompte()+" "+r.getVoyage()+" "+r.getActivites()+" - Prix du voyage :"+r.getPrix()+"€ TTC");
+			//System.out.println(r.getCompte()+" "+r.getVoyage()+" "+r.getActivites()+" - Prix du voyage :"+r.getPrix()+"€ TTC");
 			
 		}else if (sauvegarde.equals("non")) {
 				menuPrincipal();
@@ -393,14 +392,13 @@ public class App {
 			}
 
 		
-		menuPrincipal();
+		monCompte();
 	}
 
 	
 	
 
 		public static void main(String[] args) {
-	System.out.println(Context.getInstance().getDaoReservation().findAll());
 			menuPrincipal();
 		}
 	}	

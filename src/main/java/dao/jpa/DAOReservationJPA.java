@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import dao.IDAOReservation;
+import metier.Compte;
 import metier.Reservation;
 import util.Context;
 
@@ -64,12 +65,11 @@ public class DAOReservationJPA implements IDAOReservation {
 	}
 
 	@Override
-	public List<Reservation> findByCompte(int idCompte) {
-		EntityManager em=Context.getInstance().getEmf().createEntityManager();
-		Query myQuery=em.createQuery("from Reservation r where r.idCompte=:idCompte",Reservation.class);
-		myQuery.setParameter("idCompte", idCompte);
-		return myQuery.getResultList();
-		
+	public List<Reservation> findByCompte(Compte compte) {
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
+		Query myQuery=em.createQuery("SELECT r from Reservation r WHERE r.idCompte=:compte",Reservation.class);
+		myQuery.setParameter("compte",compte);
+		return (List<Reservation>) myQuery.getResultList();
 		
 	}
 	

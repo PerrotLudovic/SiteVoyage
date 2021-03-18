@@ -66,6 +66,12 @@ public class DAOActiviteJPA implements IDAOActivite{
 		
 	}
 
+	@Override
+	public List<Activite> findByIdPays(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	}
 
