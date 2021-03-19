@@ -45,12 +45,14 @@ public class App {
 		System.out.println("Welcome, merci de faire un choix :");
 		System.out.println("1 - Voir la liste de nos destinations :");
 		System.out.println("2 - Se connecter");
+		System.out.println("3 - Fermer l'application");
 		int choix = saisieInt("");
 
 		switch(choix) 
 		{
 		case 1 : listeVoyages();break;
 		case 2 : seConnecter();break;
+		case 3 : Context.getInstance().closeEmf();System.exit(0);;break;
 		default : System.out.println("Choix impossible !\n");
 		}
 
@@ -69,13 +71,13 @@ public class App {
 
 			Compte connected=Context.getInstance().getDaoCompte().checkConnect(nom, password);
 			Context.getInstance().setConnected(connected);
-			System.out.println(connected);
+			
 
 			if(connected==null){ 
 				System.out.println("Identifiants invalides, veuillez rentrer des Identifiants valides.");
 				seConnecter();}
 			else {
-
+				System.out.println(connected);
 				if(connected instanceof Admin) {
 					System.out.println("Un plaisir de te revoir cher Admin :)");
 					System.out.println("Saisir une action : ");
@@ -269,7 +271,7 @@ public class App {
 
 
 		Compte c=new Compte(nom,prenom,mail,password);
-		Context.getInstance().getDaoCompte().save(c);
+		c =Context.getInstance().getDaoCompte().save(c);
 
 		Compte connected=c;
 		Context.getInstance().getDaoCompte().checkConnect(nom, password);
@@ -428,6 +430,7 @@ public class App {
 
 
 	public static void main(String[] args) {
+		Context.getInstance().getEmf().createEntityManager();
 		menuPrincipal();
 	}
 }	

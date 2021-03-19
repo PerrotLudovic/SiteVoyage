@@ -71,7 +71,15 @@ public class DAOCompteJPA implements IDAOCompte {
 		Query myQuery=em.createQuery("SELECT c from Compte c WHERE c.nom=:nom AND c.password=:pass",Compte.class);
 		myQuery.setParameter("nom",nom);
 		myQuery.setParameter("pass",password);
-		return (Compte) myQuery.getSingleResult();
+		
+		try {Compte c=(Compte) myQuery.getSingleResult(); 
+		return c;}
+		
+		catch(Exception e) { 
+			return null;
+		}
+		
+		
 		
 	}
 
