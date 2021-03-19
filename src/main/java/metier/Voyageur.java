@@ -27,8 +27,6 @@ public class Voyageur {
 	}
 	
 
-	
-
 
 	public Voyageur(int id, int idReservation, String nom, String prenom) {
 		this.id = id;
