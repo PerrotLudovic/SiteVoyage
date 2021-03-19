@@ -250,15 +250,7 @@ public class App {
 		{
 
 		case 1 : System.out.println(connected);break;
-		case 2 : 
-			for(Reservation resa:r) {
-				System.out.println(resa.getVoyage());
-				
-			}
-			
-			
-			
-			break;
+	
 		case 2 : if (r.size()<1) 
 			{System.out.println("Vous n'avez pas de r�servations");}
 			
