@@ -6,6 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import dao.IDAOVoyage;
+import metier.Compte;
+import metier.Pays;
+import metier.Reservation;
 import metier.Voyage;
 import util.Context;
 
@@ -64,4 +67,16 @@ public class DAOVoyageJPA implements IDAOVoyage {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	
+	public List<Voyage> voyageWithPays(Pays destination) {
+			EntityManager em = Context.getInstance().getEmf().createEntityManager();
+			Query myQuery=em.createQuery("SELECT v from Voyage v WHERE v.destination.id=:id",Voyage.class);
+			myQuery.setParameter("id",destination.getId());
+			return (List<Voyage>) myQuery.getResultList();
+			
+		}
 }
+	
+
