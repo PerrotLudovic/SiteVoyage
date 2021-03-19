@@ -323,7 +323,7 @@ public class App {
 
 	private static void choixReservation() {
 
-		List<Activite> activites=new ArrayList();
+		
 		Activite a1=null;
 		
 		List<Pays> p=Context.getInstance().getDaoPays().findAll();
@@ -334,17 +334,33 @@ public class App {
 		
 		int choixPays=saisieInt("Saisir l'id du Pays ou vous souhaitez partir : ");
 		Pays p1=Context.getInstance().getDaoPays().findById(choixPays);
-		
-		for(Voyage v:Context.getInstance().getDaoVoyage().voyageWithPays(p1) ) {
-			System.out.println("id : "+v.getId()+" - Pays de destination :"+v.getDestination().getNom()+" - Date dï¿½part : "+v.getDebut()+" - Date retour : "+v.getFin()+" - Prix : "+v.getPrixVoyage()+"ï¿½");
+		List<Voyage> voyages =Context.getInstance().getDaoVoyage().voyageWithPays(p1);
+		for(Voyage v: voyages) {
+			System.out.println("id : "+v.getId()+" - Pays de destination :"+v.getDestination().getNom()+" - Date départ : "+v.getDebut()+" - Date retour : "+v.getFin()+" - Prix : "+v.getPrixVoyage()+"€");
+		}
+		if (voyages.size()<1) {
+			System.out.println("Pas de voyage disponible à ces dates");
+			choixReservation();
 		}
 		
+		int id=saisieInt("Saisir l'id du voyage ");
+
+        Voyage v=Context.getInstance().getDaoVoyage().findById(id);
+        
+        
+		// Ajout activité
+        List<Activite> activites=Context.getInstance().getDaoActivite().findByIdPays(v.getDestination());
+		System.out.println("Nos activités :");
+		
+		for (Activite act: activites) {
+			System.out.println(act);
+		}
 		String choixActivites=saisieString("Voulez vous rï¿½server des activitï¿½s ? (oui/non)");
 		List<Activite> ajoutActivite=new ArrayList();
 
 
 		while(choixActivites.equals("oui")){
-			
+			List<Activite> a =Context.getInstance().getDaoActivite().findByIdPays(v.getDestination());
 			int choix=saisieInt("Saisir id de l'activitï¿½ ");
 			a1=Context.getInstance().getDaoActivite().findById(choix);
 			ajoutActivite.add(a1);
@@ -385,7 +401,7 @@ public class App {
 		else if(choix1.equals("non")){
 			choixTransport=null;
 		}
-		//Ajout de l'activitï¿½ de la rï¿½servation
+		//Ajout de l'activité de la réservation
 		Compte connected=Context.getInstance().getConnected();
 		Reservation reservation =new Reservation(connected,Context.getInstance().getDaoVoyage().findById(v.getId()),v.getPrixVoyage(),choixTransport);
 
