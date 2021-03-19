@@ -52,7 +52,6 @@ public class DAOCompteJPA implements IDAOCompte {
 	}
 	
 
-
 	@Override
 	public void insert(Compte d) {
 		// TODO Auto-generated method stub

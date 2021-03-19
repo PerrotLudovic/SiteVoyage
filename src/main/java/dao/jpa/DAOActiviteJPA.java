@@ -7,6 +7,7 @@ import javax.persistence.Query;
 
 import dao.IDAOActivite;
 import metier.Activite;
+import metier.Compte;
 import metier.Pays;
 import metier.Reservation;
 import util.Context;
@@ -80,10 +81,13 @@ public class DAOActiviteJPA implements IDAOActivite{
 		return myQuery.getResultList();
 	
 	}
+	}
 
+					
+		}
 	
+		
 
-}}
 
 
 

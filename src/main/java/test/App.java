@@ -253,7 +253,12 @@ public class App {
 		case 2 : 
 			for(Reservation resa:r) {
 				System.out.println(resa.getVoyage());
-			}break;
+				
+			}
+			
+			
+			
+			break;
 		case 3 : listeVoyages();break;
 		case 4: menuPrincipal();break;
 		default : System.out.println("Choix impossible !\n");
@@ -318,8 +323,17 @@ public class App {
 		
 		List<Activite> activites=new ArrayList();
 		Activite a1=null;
+		
+		List<Pays> p=Context.getInstance().getDaoPays().findAll();
+		for(Pays c:p) {
+			System.out.println("id : "+c.getId()+" Pays :"+c.getNom());
 
-		for(Voyage v:Context.getInstance().getDaoVoyage().findAll() ) {
+		}
+		
+		int choixPays=saisieInt("Saisir l'id du Pays ou vous souhaitez partir : ");
+		Pays p1=Context.getInstance().getDaoPays().findById(choixPays);
+		
+		for(Voyage v:Context.getInstance().getDaoVoyage().voyageWithPays(p1) ) {
 			System.out.println("id : "+v.getId()+" - Pays de destination :"+v.getDestination().getNom()+" - Date départ : "+v.getDebut()+" - Date retour : "+v.getFin()+" - Prix : "+v.getPrixVoyage()+"€");
 		}
 
@@ -413,7 +427,7 @@ public class App {
 			Context.getInstance().getDaoReservation().save(reservation);
 			System.out.println("Reservation confirmée\n");
 			System.out.println("Détails de la réservation :");
-			System.out.println("Destination : "+reservation.getVoyage().getDestination().getNom()+" - Date départ : "+reservation.getVoyage().getDebut()+" - Date retour : "+reservation.getVoyage().getFin()+"\n"+" - Activitée choisie : "+a1.getLibelle()+"\n"+" - Prix du voyage :"+prixFinal+"€ TTC \n");
+			System.out.println("Destination : "+reservation.getVoyage().getDestination().getNom()+" - Date départ : "+reservation.getVoyage().getDebut()+" - Date retour : "+reservation.getVoyage().getFin()+"\n"+" - Prix du voyage :"+prixFinal+"€ TTC \n");
 
 		}else if (sauvegarde.equals("non")) {
 			menuPrincipal();
