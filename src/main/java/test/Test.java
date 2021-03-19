@@ -35,10 +35,11 @@ public class Test {
 		Voyage voyage5 = new Voyage("2021-05-15","2021-05-29", Context.getInstance().getDaoPays().findById(1),	Context.getInstance().getDaoPays().findById(1));
 		Voyage voyage6 = new Voyage("2021-06-01","2021-06-18", Context.getInstance().getDaoPays().findById(4),	Context.getInstance().getDaoPays().findById(1));
 		Voyage voyage7 = new Voyage("2021-04-30","2021-05-12", Context.getInstance().getDaoPays().findById(4),	Context.getInstance().getDaoPays().findById(1));
-		
+		Voyage voyage8 = new Voyage("2021-05-15","2021-05-30",	Context.getInstance().getDaoPays().findById(5),	Context.getInstance().getDaoPays().findById(1));
 		
 		voyage1=Context.getInstance().getDaoVoyage().save(voyage1);
 		voyage2=Context.getInstance().getDaoVoyage().save(voyage2);
+		voyage8=Context.getInstance().getDaoVoyage().save(voyage8);
 		
 		Activite activite0 = new Activite("Pas d'activité",0,Context.getInstance().getDaoPays().findById(1));
 		activite0=Context.getInstance().getDaoActivite().save(activite0);
@@ -69,7 +70,9 @@ public class Test {
 
 		activite6=Context.getInstance().getDaoActivite().save(activite6);
 		
+		Activite activite7 = new Activite("Bivouac dans le desert",3,Context.getInstance().getDaoPays().findById(5));
 
+		activite7=Context.getInstance().getDaoActivite().save(activite7);
 
 		Admin admin = new Admin(1,"admin","admin","admin@gmail.fr","admin");
 
