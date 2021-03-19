@@ -374,11 +374,13 @@ public class App {
 		Reservation reservation =new Reservation(connected,Context.getInstance().getDaoVoyage().findById(v.getId()),v.getPrixVoyage(),choixTransport);
 
 
-		String choixV = saisieString("Voulez vous ajouter un voyageur (oui/non)? ");
+		String choixV;
 		Voyageur vy=new Voyageur();
 		List<Voyageur> ajoutVoy=new ArrayList();
 
-		while(choixV.equals("oui")) {
+		
+		do {
+			System.out.println("Veuillez renseigner vos informations : ");
 			String nom=saisieString("Saisir nom voyageur");
 			String prenom=saisieString("Saisir prenom voyageur");
 			Context.getInstance().getDaoReservation().findById(id);
@@ -389,12 +391,8 @@ public class App {
 			Context.getInstance().getDaoVoyageur().save(vy);
 			choixV=saisieString("Voulez vous ajouter un autre voyageur (oui/non)?");
 		}
+		while(choixV.equals("oui")) ;
 
-
-
-		if(choixActivites.equals("non")) {
-
-		}
 
 
 		System.out.println("Récapitulatif réservation : ");
