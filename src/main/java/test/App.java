@@ -71,7 +71,7 @@ public class App {
 
 			Compte connected=Context.getInstance().getDaoCompte().checkConnect(nom, password);
 			Context.getInstance().setConnected(connected);
-			
+
 
 			if(connected==null){ 
 				System.out.println("Identifiants invalides, veuillez rentrer des Identifiants valides.");
@@ -250,10 +250,16 @@ public class App {
 		{
 
 		case 1 : System.out.println(connected);break;
-		case 2 : 
-			for(Reservation resa:r) {
-				System.out.println(resa.getVoyage());
+		case 2 : if (r.size()<1) 
+			{System.out.println("Vous n'avez pas de réservations");}
+			
+			else {
+
+				for(Reservation resa:r) {
+					System.out.println(resa.getVoyage());
+				}
 			}break;
+
 		case 3 : listeVoyages();break;
 		case 4: menuPrincipal();break;
 		default : System.out.println("Choix impossible !\n");
@@ -315,7 +321,7 @@ public class App {
 
 
 	private static void choixReservation() {
-		
+
 		List<Activite> activites=new ArrayList();
 		Activite a1=null;
 
@@ -381,7 +387,7 @@ public class App {
 		Voyageur vy=new Voyageur();
 		List<Voyageur> ajoutVoy=new ArrayList();
 
-		
+
 		do {
 			System.out.println("Veuillez renseigner vos informations : ");
 			String nom=saisieString("Saisir nom voyageur");
