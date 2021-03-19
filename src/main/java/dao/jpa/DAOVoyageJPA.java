@@ -1,6 +1,7 @@
 package dao.jpa;
 
 import java.util.List;
+
 //test
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -21,14 +22,26 @@ public class DAOVoyageJPA implements IDAOVoyage {
 		em.close();
 		return voyage;
 	}
+	
+	/*@Override
+	public List<Voyage> findBydate(String debut) 
+	{ 
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
+		
+		Query query = em.createQuery("from Voyage v where v.debut > LocalDate.now()", Produit.class); 
+		query.setParameter("lib", v.getDebut");
+		//getSingleResult si un seul element
+	return  query.getResultList(); */
 
 	@Override
 	public List<Voyage> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query myQuery = em.createQuery("SELECT c from Voyage c",Voyage.class);
-		 return myQuery.getResultList(); 
+		Query myQuery = em.createQuery("SELECT c from Voyage c WHERE c.debut > NOW()",Voyage.class);
+		return (List<Voyage>) myQuery.getResultList();
+		
 	}
-
+	
+	
 	@Override
 	public Voyage save(Voyage voyage) {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();

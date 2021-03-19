@@ -338,25 +338,20 @@ public class App {
 		for(Voyage v:Context.getInstance().getDaoVoyage().voyageWithPays(p1) ) {
 			System.out.println("id : "+v.getId()+" - Pays de destination :"+v.getDestination().getNom()+" - Date d�part : "+v.getDebut()+" - Date retour : "+v.getFin()+" - Prix : "+v.getPrixVoyage()+"�");
 		}
-
-		int id=saisieInt("Saisir l'id du voyage ");
-
-		Voyage v=Context.getInstance().getDaoVoyage().findById(id);
-
+		
 		String choixActivites=saisieString("Voulez vous r�server des activit�s ? (oui/non)");
 		List<Activite> ajoutActivite=new ArrayList();
 
 
 		while(choixActivites.equals("oui")){
-			List<Activite> a =Context.getInstance().getDaoActivite().findByIdPays(v.getDestination());
+			
+			int choix=saisieInt("Saisir id de l'activit� ");
+			a1=Context.getInstance().getDaoActivite().findById(choix);
+			ajoutActivite.add(a1);
 
 			for (Activite act: a) {
 				System.out.println(act);
 			}
-
-			int choix=saisieInt("Saisir id de l'activit� ");
-			a1=Context.getInstance().getDaoActivite().findById(choix);
-			ajoutActivite.add(a1);
 			choixActivites=saisieString("Voulez vous r�server une autre activit� ? (oui/non)");
 		}
 
@@ -369,16 +364,18 @@ public class App {
 		// Ajout du transport
 		Transport choixTransport = null;
 		Transport listeTransport[] = Transport.values();
-
+		
+		System.out.println("Nos transports :");
+		for(Transport t : listeTransport) 
+		{
+			System.out.println(t);
+		}
+		
 		String choix1 = saisieString("Voulez vous un transport (oui/non)? ");
 		String choix2=null;
 		if(choix1.equals("oui"))
 
 		{
-			for(Transport t : listeTransport) 
-			{
-				System.out.println(t);
-			}
 			choix2=saisieString("Choix de votre transport");
 
 			choixTransport = Transport.valueOf(choix2);
@@ -400,8 +397,8 @@ public class App {
 
 		do {
 			System.out.println("Veuillez renseigner vos informations : ");
-			String nom=saisieString("Saisir nom voyageur");
-			String prenom=saisieString("Saisir prenom voyageur");
+			String nom=saisieString("Saisir votre nom ");
+			String prenom=saisieString("Saisir votre prenom ");
 			Context.getInstance().getDaoReservation().findById(id);
 
 
