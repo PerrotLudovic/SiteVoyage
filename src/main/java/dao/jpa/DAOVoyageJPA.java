@@ -85,7 +85,7 @@ public class DAOVoyageJPA implements IDAOVoyage {
 	
 	public List<Voyage> voyageWithPays(Pays destination) {
 			EntityManager em = Context.getInstance().getEmf().createEntityManager();
-			Query myQuery=em.createQuery("SELECT v from Voyage v WHERE v.destination.id=:id",Voyage.class);
+			Query myQuery=em.createQuery("SELECT v from Voyage v WHERE v.destination.id=:id AND v.debut > NOW()",Voyage.class);
 			myQuery.setParameter("id",destination.getId());
 			return (List<Voyage>) myQuery.getResultList();
 			
