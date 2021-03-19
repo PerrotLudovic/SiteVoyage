@@ -43,26 +43,27 @@ public class Test {
 		
 		activite1=Context.getInstance().getDaoActivite().save(activite1);
 
-	
-
-
 		Activite activite2 = new Activite("Atelier sushi",2,Context.getInstance().getDaoPays().findById(6));
 
 		activite2=Context.getInstance().getDaoActivite().save(activite2);
 
-		
-
-
+	
 		Activite activite3 = new Activite("Kayak dans les Fjords",5,Context.getInstance().getDaoPays().findById(4));
 
 		activite3=Context.getInstance().getDaoActivite().save(activite3);
 
-	
 
 		Activite activite4 = new Activite("Visite d'un elevage de saumon",3,Context.getInstance().getDaoPays().findById(4));
 
 		activite4=Context.getInstance().getDaoActivite().save(activite4);
+		
+		Activite activite5 = new Activite("Dégustation de Vodka",3,Context.getInstance().getDaoPays().findById(2));
 
+		activite5=Context.getInstance().getDaoActivite().save(activite5);
+
+		Activite activite6 = new Activite("Randonnée au Teide ",3,Context.getInstance().getDaoPays().findById(3));
+
+		activite6=Context.getInstance().getDaoActivite().save(activite6);
 		
 
 
