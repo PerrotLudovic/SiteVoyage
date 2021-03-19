@@ -253,6 +253,12 @@ public class App {
 	
 		case 2 : if (r.size()<1) 
 			{System.out.println("Vous n'avez pas de rï¿½servations");}
+		case 2 : 
+			for(Reservation resa:r) {
+				System.out.println(resa.getVoyage());
+				System.out.println("Liste des Voyageurs : "+Context.getInstance().getDaoVoyageur().findByReservation(resa.getId()));
+				
+			}
 			
 			else {
 
@@ -316,7 +322,7 @@ public class App {
 				seConnecter();
 			} break;
 
-		case 2 : menuPrincipal();break;}
+		case 2 : monCompte();break;}
 
 	}
 
@@ -328,7 +334,7 @@ public class App {
 		
 		List<Pays> p=Context.getInstance().getDaoPays().findAll();
 		for(Pays c:p) {
-			System.out.println("id : "+c.getId()+" Pays :"+c.getNom());
+			System.out.println("id: "+c.getId()+" Pays :"+c.getNom());
 
 		}
 		
@@ -336,10 +342,10 @@ public class App {
 		Pays p1=Context.getInstance().getDaoPays().findById(choixPays);
 		List<Voyage> voyages =Context.getInstance().getDaoVoyage().voyageWithPays(p1);
 		for(Voyage v: voyages) {
-			System.out.println("id : "+v.getId()+" - Pays de destination :"+v.getDestination().getNom()+" - Date départ : "+v.getDebut()+" - Date retour : "+v.getFin()+" - Prix : "+v.getPrixVoyage()+"€");
+			System.out.println("id : "+v.getId()+" - Pays de destination :"+v.getDestination().getNom()+" - Date dï¿½part : "+v.getDebut()+" - Date retour : "+v.getFin()+" - Prix : "+v.getPrixVoyage()+"ï¿½");
 		}
 		if (voyages.size()<1) {
-			System.out.println("Pas de voyage disponible à ces dates");
+			System.out.println("Pas de voyage disponible ï¿½ ces dates");
 			choixReservation();
 		}
 		
@@ -348,9 +354,9 @@ public class App {
         Voyage v=Context.getInstance().getDaoVoyage().findById(id);
         
         
-		// Ajout activité
+		// Ajout activitï¿½
         List<Activite> activites=Context.getInstance().getDaoActivite().findByIdPays(v.getDestination());
-		System.out.println("Nos activités :");
+		System.out.println("Nos activitï¿½s :");
 		
 		for (Activite act: activites) {
 			System.out.println(act);
@@ -401,7 +407,7 @@ public class App {
 		else if(choix1.equals("non")){
 			choixTransport=null;
 		}
-		//Ajout de l'activité de la réservation
+		//Ajout de l'activitï¿½ de la rï¿½servation
 		Compte connected=Context.getInstance().getConnected();
 		Reservation reservation =new Reservation(connected,Context.getInstance().getDaoVoyage().findById(v.getId()),v.getPrixVoyage(),choixTransport);
 

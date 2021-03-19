@@ -1,6 +1,7 @@
 package dao.jpa;
 
 import java.util.List;
+
 //Test
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -63,5 +64,21 @@ public class DAOVoyageurJPA implements IDAOVoyageur {
 		
 	}
 	
+	
+	@Override
+	public List<Voyageur> findByReservation(int idReservation) {
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
+		Query myQuery=em.createQuery("SELECT voy from Voyageur voy WHERE voy.idReservation=:id",Voyageur.class);
+		myQuery.setParameter("id",idReservation);
+		return (List<Voyageur>) myQuery.getResultList();
+		
 
 }
+	
+	
+		
+	}
+	
+	
+	
+
