@@ -26,7 +26,7 @@ public class DAOActiviteJPA implements IDAOActivite{
 	public List<Activite> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		Query myQuery=em.createQuery("SELECT a from Activite a",Activite.class);
-		
+		em.close();
 		return myQuery.getResultList();
 	
 	}
