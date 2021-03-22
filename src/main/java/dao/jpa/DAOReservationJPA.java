@@ -24,8 +24,7 @@ public class DAOReservationJPA implements IDAOReservation {
 	@Override
 	public List<Reservation> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query myQuery = em.createQuery("SELECT c from Reservation c WHERE c.debut > NOW()",Reservation.class);
-		em.close(); 
+		Query myQuery = em.createQuery("SELECT c from Reservation c WHERE c.debut > NOW()",Reservation.class); 
 		return myQuery.getResultList(); 
 	}
 
