@@ -37,7 +37,6 @@ public class DAOVoyageJPA implements IDAOVoyage {
 	public List<Voyage> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		Query myQuery = em.createQuery("SELECT c from Voyage c WHERE c.debut > NOW()",Voyage.class);
-		em.close();
 		return (List<Voyage>) myQuery.getResultList();
 		
 	}

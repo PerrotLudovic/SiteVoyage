@@ -22,7 +22,6 @@ public class DAOPaysJPA implements IDAOPays {
 	public List<Pays> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		Query myQuery = em.createQuery("SELECT c from Pays c",Pays.class);
-		em.close();
 		 return myQuery.getResultList(); 
 	}
 
