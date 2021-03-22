@@ -23,6 +23,7 @@ public class DAOCompteJPA implements IDAOCompte {
 	public List<Compte> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		Query myQuery = em.createQuery("SELECT c from Compte c",Compte.class);
+		em.close();
 		 return myQuery.getResultList(); 
 	}
 

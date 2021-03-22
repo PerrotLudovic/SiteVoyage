@@ -24,7 +24,8 @@ public class DAOVoyageurJPA implements IDAOVoyageur {
 	public List<Voyageur> findAll() {
 		EntityManager em = Context.getInstance().getEmf().createEntityManager();
 		Query myQuery = em.createQuery("SELECT c from Voyageur c",Voyageur.class);
-		 return myQuery.getResultList(); 
+		em.close();
+		return myQuery.getResultList(); 
 	}
 
 	@Override
