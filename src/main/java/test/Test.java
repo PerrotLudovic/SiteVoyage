@@ -26,6 +26,7 @@ public class Test {
 		p3=Context.getInstance().getDaoPays().save(p3);
 		p4=Context.getInstance().getDaoPays().save(p4);
 		p5=Context.getInstance().getDaoPays().save(p5);
+		p6=Context.getInstance().getDaoPays().save(p6);
 		
 		System.out.println(Context.getInstance().getDaoPays().findById(5));
 		Voyage voyage1 = new Voyage("2021-07-15","2021-07-30",	Context.getInstance().getDaoPays().findById(5),	Context.getInstance().getDaoPays().findById(1));
