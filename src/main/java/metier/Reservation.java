@@ -28,8 +28,9 @@ public class Reservation {
 	
 	@Enumerated(EnumType.STRING)
 	private Transport transport;
+	
 	@ManyToMany 
-	private List<Activite> activites;
+	private List <Activite> activites;
 	
 	
 
@@ -38,21 +39,23 @@ public class Reservation {
 
 
 
-	public Reservation(Double Prix, Voyage v, Transport transport) {
+	public Reservation(Double Prix, Voyage v, Transport transport, List <Activite> activites) {
 		this.voyage= v;
 		this.transport = transport;
 		this.date = LocalDate.now();
 		this.prix = v.getPrixVoyage()+transport.getPrix();
+		this.activites=activites;
 		
 		
 	}
 
 
-	public Reservation(Compte idCompte, Voyage idVoyage, Double prix,Transport transport) {
+	public Reservation(Compte idCompte, Voyage idVoyage, Double prix,Transport transport, List <Activite> activites) {
 		this.compte=idCompte;
 		this.voyage = idVoyage;
 		this.date = LocalDate.now();
 		this.transport=transport;
+		this.activites=activites;
 		
 		this.prix = prix;
 	}
@@ -137,9 +140,13 @@ public class Reservation {
 
 	@Override
 	public String toString() {
-		return "Reservation [voyage=" + voyage + ", compte=" + compte + ", date=" + date + ", prix=" + prix + ", id="
-				+ id + ", transport=" + transport + "]";
+		return "Reservation [id=" + id + ", voyage=" + voyage + ", compte=" + compte + ", date=" + date + ", prix="
+				+ prix + ", transport=" + transport + ", activites=" + activites + "]";
 	}
+
+
+
+	
 
 
 

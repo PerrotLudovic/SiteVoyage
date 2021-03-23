@@ -10,6 +10,7 @@ import metier.Activite;
 import metier.Compte;
 import metier.Pays;
 import metier.Reservation;
+import metier.Voyageur;
 import util.Context;
 
 public class DAOActiviteJPA implements IDAOActivite{
@@ -67,6 +68,16 @@ public class DAOActiviteJPA implements IDAOActivite{
 		// TODO Auto-generated method stub
 
 	}
+	
+	@Override
+	public List<Activite> findByReservation(Reservation reservation) {
+		EntityManager em = Context.getInstance().getEmf().createEntityManager();
+		Query myQuery=em.createQuery("SELECT a from Activite a WHERE a.reservation.id=:id",Activite.class);
+		myQuery.setParameter("id", reservation.getId());
+		return (List<Activite>) myQuery.getResultList();
+		
+
+}
 
 	@Override
 	public List<Activite> findByIdPays(Pays pays) {
