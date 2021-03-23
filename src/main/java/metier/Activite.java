@@ -22,11 +22,14 @@ public class Activite {
 	
 	private int duree;
 	
+	@ManyToMany(mappedBy="activites")
+    private List<Reservation>reservations;
+	
 	@ManyToOne
 	private Pays pays;
 	
-	@ManyToMany(mappedBy="activites")
-	private List<Reservation>reservations;
+	
+	
 	
 	public Activite() {
 	}
@@ -78,7 +81,15 @@ public class Activite {
 	}
 
 	
-	
+
+	public List<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
+	}
+
 	@Override
 	public String toString() {
 		return "Activite [id=" + id + ", libelle=" + libelle + ", duree=" + duree +" heures"+ "]";

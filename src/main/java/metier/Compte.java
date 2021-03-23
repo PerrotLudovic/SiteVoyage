@@ -1,10 +1,13 @@
 package metier;
 
+import java.util.List;
+
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorColumn(name="typeCompte")
@@ -17,7 +20,10 @@ public class Compte {
 	protected String email;
 	protected String password;
 	
-
+	@OneToMany
+	protected List <Reservation> idReservation;
+	
+	
 	
 	public Compte() {
 	}
@@ -79,6 +85,17 @@ public class Compte {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	
+
+
+	public List<Reservation> getIdReservation() {
+		return idReservation;
+	}
+
+	public void setIdReservation(List<Reservation> idReservation) {
+		this.idReservation = idReservation;
 	}
 
 	@Override

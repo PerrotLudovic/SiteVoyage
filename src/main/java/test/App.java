@@ -66,7 +66,7 @@ public class App {
 		String compte1 =saisieString("Avez vous deja un compte client ? (oui/non)");
 
 		if(compte1.equals("oui")) {
-			String nom=saisieString("Nom de famille ");
+			String nom=saisieString("Login : ");
 			String password=saisieString("Saisir password ");
 
 			Compte connected=Context.getInstance().getDaoCompte().checkConnect(nom, password);
@@ -237,8 +237,10 @@ public class App {
 	private static void monCompte() {
 		Compte connected=Context.getInstance().getConnected();
 		Context.getInstance().setConnected(connected);
+		
 
 		List <Reservation> r = Context.getInstance().getDaoReservation().findByCompte(connected);
+		
 
 		System.out.println("1 - Mes informations");
 		System.out.println("2 - Voir mes reservations");
@@ -251,16 +253,19 @@ public class App {
 
 		case 1 : System.out.println(connected);break;
 	
-		case 2 : if (r.size()<1) 
+		case 2 : if (r.size()<1 ) 
 			{System.out.println("Vous n'avez pas de reservations");}
 			
 			else {
-				System.out.println(Context.getInstance().getDaoVoyageur().findAll());
+				
 				for(Reservation resa:r) {
 					System.out.println(resa.getVoyage());
+					System.out.println("Liste des activités : "+resa.getActivites());
 					System.out.println("Liste des Voyageurs : "+Context.getInstance().getDaoVoyageur().findByReservation(resa.getId()));
+					};
+					
 			} break;
-			}
+			
 		case 3 : listeVoyages();break;
 		case 4: menuPrincipal();break;
 		default : System.out.println("Choix impossible !\n");
@@ -403,7 +408,7 @@ public class App {
 		}
 		//Ajout de l'activitï¿½ de la rï¿½servation
 		Compte connected=Context.getInstance().getConnected();
-		Reservation reservation =new Reservation(connected,Context.getInstance().getDaoVoyage().findById(v.getId()),v.getPrixVoyage(),choixTransport);
+		Reservation reservation =new Reservation(connected,Context.getInstance().getDaoVoyage().findById(v.getId()),v.getPrixVoyage(),choixTransport, ajoutActivite);
 
 
 		String choixV;
@@ -428,8 +433,9 @@ public class App {
 
 
 		System.out.println("Recapitulatif reservation : ");
-		System.out.println("Destination : "+reservation.getVoyage().getDestination().getNom()+" - Date depart : "+reservation.getVoyage().getDebut()+" - Date retour : "+reservation.getVoyage().getFin()+"\n"+" - Prix du voyage par personne :"+reservation.getPrix()+"€ TTC");
+		System.out.println("Destination : "+reservation.getVoyage().getDestination().getNom()+" - Date depart : "+reservation.getVoyage().getDebut()+" - Date retour : "+reservation.getVoyage().getFin()+"\n"+" - Prix/personne :"+reservation.getPrix()+"€ TTC");
 		for(Voyageur voy5:ajoutVoy) {System.out.println(voy5);}
+		
 
 
 		Double prixFinal=ajoutVoy.size()*reservation.getPrix();
@@ -443,7 +449,9 @@ public class App {
 			System.out.println("Reservation confirmee\n");
 			System.out.println("Details de la reservation :");
 			System.out.println("Destination : "+reservation.getVoyage().getDestination().getNom()+" - Date depart : "+reservation.getVoyage().getDebut()+" - Date retour : "+reservation.getVoyage().getFin()+"\n"+" - Prix du voyage :"+prixFinal+"€ TTC \n");
-
+			for(Voyageur voy5:ajoutVoy) {System.out.println(voy5);}
+			for(Activite act5:ajoutActivite) {System.out.println("Activites reservees:"+act5.getLibelle()+" - pendant "+act5.getDuree()+"heures");}
+			
 		}else if (sauvegarde.equals("non")) {
 			menuPrincipal();
 		} else {
