@@ -58,7 +58,18 @@ background-repeat:no-repeat;
   top:170px;
   position: fixed;
 background-color: #ead93c;
-height: 80px;
+height: 101px;
 width: 130px;
 
+}
+#connecter
+{
+  float:left;
+  background-color: white;
+
+}
+#compte
+{
+  float:left;
+  background-color: white;
 }
