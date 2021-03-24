@@ -1,0 +1,64 @@
+
+
+
+body{
+  background-image: url(img/voyage.jpg);
+  background-size:100%;
+  background-repeat:no-repeat;
+}
+
+.container{background-image: url(img/mapmonde.png);
+  opacity: 75%;
+  background-repeat: no-repeat;
+  background-size: 1500px;
+  position: absolute;
+top:130px;
+
+width:90%;
+height:2000px;
+}
+
+header{
+background-color: #ead93c;
+width: 100%;
+height: 113px;
+top:20px;
+}
+
+.textheader{font-size: 60px;
+color:white;
+font-family: fantasy;
+position: absolute;
+top:30px;
+right:200px;
+bottom:20px;
+left:220px;}
+
+.smalltext{
+  font-size:15px;
+  color:white;
+  font-family: fantasy;
+  position: absolute;
+  top:75px;
+  bottom:20px;
+  left:680px;}
+
+#logo{
+float:left;
+background-image: url(img/logovoyage.png);
+background-size:100%;
+width: 150px;
+height: 170px;
+background-repeat:no-repeat;
+}
+
+#menu{
+  position: absolute;
+  left: 18px;
+  top:170px;
+  position: fixed;
+background-color: #ead93c;
+height: 80px;
+width: 130px;
+
+}
