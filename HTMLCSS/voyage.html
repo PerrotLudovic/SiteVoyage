@@ -12,22 +12,15 @@
 	<body>
     <header>
 <div id="logo"></div>
-<span class="textheader">MonbeauVoyage.fr </span>
+<div class="textheader">MonbeauVoyage.fr</div>
 <span class="smalltext">(Roi des voyages...)</span>
     </header>
 
-  <div id="menu">
-    <ul>
-      <li><a href = "">Créer un compte</a></li>
-      <li><a href = "">Se connecter</a></li>
-    </ul>
-  </div>
-
 	<div id="connexion">
 		<form id="connecter">
-			
+
 			<fieldset>
-			  <legend>Connexion</legend>
+			  <legend id="textconnexion">Connexion</legend>
 			<table >
 			  <tr>
 			    <td>Login</td>
@@ -38,14 +31,20 @@
 			    <td><input  placeholder="********" type="password"> </td>
 			  </tr>
 				</table >
-
+<input class="btn btn-success"type="submit" id="buttonconnect">
 			</fieldset>
 
-			<input class="btn btn-success"type="submit">
 
+
+			<span class="creation">Pas encore inscrit? Créer un compte</span>
 		</form>
 
+		<div id="visiteur">Voir nos destinations sans se connecter</div>
+
+</div>
+
 		<div id="creationCompte">
+
 			<form id="compte">
 
 				<fieldset>
@@ -74,10 +73,10 @@
 				<input class="btn btn-success"type="submit">
 
 			</form>
+</div>
 
-    <div class="container">
 
-    </div>
+
 
   </body>
   </html>
