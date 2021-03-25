@@ -68,6 +68,9 @@ left:500px;
     animation: mymove 5s infinite;
     background-size: 58%;
 }
+@keyframes mymove {
+  60% {transform: rotate(360deg);}
+}
 
 #menu{
   color:#7b756a
