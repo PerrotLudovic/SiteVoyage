@@ -73,11 +73,17 @@ left:500px;
   left:980px;}
 
 #logo{
-float:left;
-background-size:100%;
-width: 150px;
-height: 170px;
-background-repeat:no-repeat;
+    float: left;
+    background-image: url(img/logo.png);
+    background-repeat: no-repeat;
+    margin: auto;
+    width: 150px;
+    height: 90px;
+    animation: mymove 5s infinite;
+    background-size: 58%;
+}
+@keyframes mymove {
+  60% {transform: rotate(360deg);}
 }
 
 #menu{

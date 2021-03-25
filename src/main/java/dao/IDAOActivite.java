@@ -12,6 +12,6 @@ public interface IDAOActivite extends IDAO<Activite,Integer> {
 
 	
 	public List<Activite> findByIdPays(Pays pays);
-	public List<Activite> findByReservation(Reservation reservation);
+	
 
 }

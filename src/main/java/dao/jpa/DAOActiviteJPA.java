@@ -69,15 +69,7 @@ public class DAOActiviteJPA implements IDAOActivite{
 
 	}
 	
-	@Override
-	public List<Activite> findByReservation(Reservation reservation) {
-		EntityManager em = Context.getInstance().getEmf().createEntityManager();
-		Query myQuery=em.createQuery("SELECT a from Activite a WHERE a.reservation.id=:id",Activite.class);
-		myQuery.setParameter("id", reservation.getId());
-		return (List<Activite>) myQuery.getResultList();
-		
-
-}
+	
 
 	@Override
 	public List<Activite> findByIdPays(Pays pays) {
