@@ -17,6 +17,20 @@ body{
   left: 200px;
   width:90%;
   height:100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box{
+height: 50px;
+width: 50px;
+border: solid 1px black;
+
+}
+.boxpays{
+width: 30px;
+height: 30px;
+
 }
 
 #textdestination{font-size: 40px;
@@ -27,7 +41,7 @@ font-family: fantasy;
   position: absolute;
   top:130px;
   left: 200px;
-  width:70%;
+  width:72%;
   height:10%;
   text-align: center;
 }
@@ -60,7 +74,6 @@ left:500px;
 
 #logo{
 float:left;
-
 background-size:100%;
 width: 150px;
 height: 170px;
@@ -79,6 +92,7 @@ opacity: 75%;
 height: 75px;
 width: 130px;
 text-align: center;
+
 
 
 }
