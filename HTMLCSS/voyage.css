@@ -13,7 +13,7 @@ body{
   background-color: white;
   opacity: 70%;
   position: absolute;
-  top:130px;
+  top:160px;
   left: 200px;
   width:75%;
   height:100%;
@@ -52,6 +52,19 @@ body{
 }
 
 #visiteur
+{display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px;
+  border-color:#7b756a;
+  border-radius: 50px 50px 50px 50px;
+  height: 6%;
+  width: 70%;
+}
+
+#deconnexion
 {display: flex;
   flex-wrap: wrap;
   background-color: white;
@@ -117,9 +130,18 @@ left:500px;
     background-size: 58%;
   }
 
-  @keyframes mymove {
-    60% {transform: rotate(360deg);}
-  }
+  @-webkit-keyframes rotation {
+        from{
+            -webkit-transform: rotate(360deg);
+        }
+        to{
+            -webkit-transform: rotate(0deg);
+        }
+    }
+
+    .rotation {
+        -webkit-animation: rotation 3s linear infinite;
+    }
 
 
 
