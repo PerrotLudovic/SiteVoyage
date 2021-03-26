@@ -20,11 +20,6 @@
 <span class="smalltext">(Roi des voyages...)</span>
     </header>
 
-  <div id="menu">
-      Mes informations
-      Mes réservations
-			Déconnexion
-  </div>
 
 	<div id="textdestination">
 			Nos destinations
@@ -33,14 +28,22 @@
     <div class="container">
 
 		</div>
-
-
     </div>
 
-		<div id="vmap" "></div>
+		<div id="vmap"></div>
 
+<div id="buttonconnect"></div>
+
+		<div id="voyage">
+			<p id="titreVoyage"><b>Voyage dispo pour ce pays</b></p>
+			Date départ <span id="box">15-05-2021</span><br>
+			Date de fin <span id="box">15-05-2021</span><br>
+			Pays de départ <span id="box">France</span><br>
+			Destination <span id="box">Brésil</span><br><br>
+		</div>
   </body>
   </html>
+
 	<script>
 	jQuery(document).ready(function () {
         jQuery('#vmap').vectorMap({
@@ -66,4 +69,13 @@
 		);
 		//
       });
+
+buttonconnect.onclick=affiche;
+function affiche(){
+  voyage.style.display="inline-block";
+}
+
+
+
+
 	</script>
