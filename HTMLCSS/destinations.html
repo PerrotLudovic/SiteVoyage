@@ -1,4 +1,8 @@
 
+<Style>
+#infos,#resa,#voyage,#deconnection{display:none;};
+
+</Style>
 <html>
 	<head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -20,6 +24,12 @@
 <span class="smalltext">(Roi des voyages...)</span>
     </header>
 
+  <div id="menu">
+		  <a id="mesInfos"href="destination.HTML">Mes informations</a>
+			<a href="destination.HTML">Mes réservations</a>
+			<a href="destination.HTML">Deconnexion</a>
+
+  </div>
 
 	<div id="textdestination">
 			Nos destinations
@@ -33,6 +43,94 @@
 		<div id="vmap"></div>
 
 <div id="buttonconnect"></div>
+
+		<div id="infos">
+			<form >
+			<fieldset>
+				<span class="info">Nom : </span><br>
+				<span class="info">Prenom:</span><br>
+				<span class="info">Email:</span><br>
+				<span class="info"></span>
+			</fieldset>
+
+		</div>
+
+		<div id="resa">
+<table border>
+			<thead>
+					<th>Id</th>
+					<th>Date</th>
+					<th>Prix</th>
+					<th>Transport</th>
+			</thead>
+			<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+			</tr>
+</table>
+		</div>
+
+		<div id="voyage">
+			<table border>
+						<thead>
+								<th>Id</th>
+								<th>Nom</th>
+								<th>Prix/Jours (€)</th>
+								<th>Restriction</th>
+						</thead>
+						<tr>
+								<td>1</td>
+								<td>France</td>
+								<td>35</td>
+								<td>0</td>
+						</tr>
+						<tr>
+								<td>2</td>
+								<td>Russie</td>
+								<td>25</td>
+								<td>0</td>
+						</tr>
+						<tr>
+								<td>3</td>
+								<td>Tenerife</td>
+								<td>15</td>
+								<td>0</td>
+						</tr>
+						<tr>
+								<td>4</td>
+								<td>Norvège</td>
+								<td>45</td>
+								<td>0</td>
+						</tr>
+						<tr>
+								<td>5</td>
+								<td>Maroc</td>
+								<td>40</td>
+								<td>0</td>
+						</tr>
+						<tr>
+								<td>6</td>
+								<td>Japon</td>
+								<td>45</td>
+								<td>0</td>
+						</tr>
+
+			</table>
+
+		</div>
+
+		<div id="deconnection">
+			<form >
+			<fieldset>
+				<span class="info">Vous avez été déconnecté</span><br>
+
+			</fieldset>
+		</div>
+
+		<div id="vmap" ></div>
 
 		<div id="voyage">
 			<p id="titreVoyage"><b>Voyage dispo pour ce pays</b></p>
@@ -69,6 +167,15 @@
 		);
 		//
       });
+
+			mesInfos.onclick=modif;
+
+function modif(){
+
+  mesInfos.style.display="block";
+	vmap.style.display="none"
+
+}
 
 buttonconnect.onclick=affiche;
 function affiche(){

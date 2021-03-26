@@ -7,7 +7,8 @@ body{
   background-repeat:no-repeat;
 }
 
-#connexion{display: flex;
+#connexion{
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   background-color: white;
@@ -19,14 +20,20 @@ body{
   height:100%;
 }
 
+#modification{
+  display: none;
+}
+#modifVoyage{
+  display: none;
+}
 
 #textconnexion{
   font-family: fantasy;
   text-align: center;
 }
 
-#connecter
-{display: flex;
+#connecter{
+  display: flex;
   flex-wrap: wrap;
   background-color: white;
   justify-content: center;
@@ -87,7 +94,7 @@ header{
 background-color: white;
 opacity: 70%;
 width: 100%;
-height: 130px;
+height: 140px;
 top:20px;
 }
 
@@ -121,13 +128,14 @@ left:500px;
 
   #logo {
     float: left;
-    background-image: url(img/logo.png);
-    background-repeat: no-repeat;
-    margin: auto;
-    width: 150px;
-    height: 90px;
-    animation: mymove 5s infinite;
-    background-size: 58%;
+  position: absolute;
+  bottom: 414px;
+  background-image: url(img/logo.png);
+  background-repeat: no-repeat;
+  margin: 244px;
+  width: 72px;
+  height: 161px;
+  background-size: 100%;
   }
 
   @-webkit-keyframes rotation {
@@ -143,6 +151,18 @@ left:500px;
         -webkit-animation: rotation 3s linear infinite;
     }
 
+  #menu{
+    color:#7b756a
+    font-size: 15px;
+    position: absolute;
+    left: 18px;
+    top:130px;
+    position: fixed;
+  background-color: white;
+  opacity: 75%;
+  height: 75px;
+  width: 130px;
+  text-align: center;
 
 
 #compte

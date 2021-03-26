@@ -1,0 +1,85 @@
+
+<html>
+
+<Style>
+
+  </Style>
+
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="voyage.css">
+    <title>Mon Beau Voyage.fr</title>
+	</head>
+
+	<body>
+    <header>
+<div id="logo" class="rotation"></div>
+<div class="textheader">MonbeauVoyage.fr</div>
+<span class="smalltext">(Roi des voyages...)</span>
+    </header>
+
+		<div id="connexion">
+			<form id="connecter">
+
+				<fieldset>
+				  <legend>Bienvenue administrateur</legend>
+
+          Choix :
+          <select id="menu">
+            <option selected>-</option>
+            <option id="supC">1-supprimer client</option>
+            <option id="supV">2-supprimer voyage</option>
+            <option id="modifV">3-modifier un voyage</option>
+            <option id="ajoutV">4-ajouter un voyage</option>
+            <option>5-Retour au menu principal</option>
+          </select>
+
+<input class="btn btn-success"type="submit" id="buttonMenu" value="OK">
+				</fieldset>
+
+        <div id="modifVoyage">
+          <form id="modification">
+
+    				<fieldset>
+    				  <legend>modification d'un voyage</legend>
+    				<table >
+    					<tr>
+    						<td>L'id<input placeholder=id type="text"> </td>
+    					</tr>
+    				  <tr>
+    				    <td>Date de départ <input  name="date depart" value="yyyy-mm-dd" type="date"></td>
+    				  </tr>
+              <td>Date de Retour <input  name="date retour" value="yyyy-mm-dd" type="date"></td>
+    					<tr>
+    					</table >
+    <input class="btn btn-success"type="submit" id="buttonModif" value="OK">
+    				</fieldset>
+    			</form>
+        </div>
+			</form>
+  </body>
+  </html>
+
+  <script>
+
+
+buttonMenu.onclick=modif;
+//buttonModif.onclick=
+
+function modif(){
+connexion.style.display="none";
+connecter.style.display="none";
+modification.style.display="block";
+modifVoyage.style.display="block";
+
+}
+
+
+
+
+
+
+  </script>
