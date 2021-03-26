@@ -20,10 +20,7 @@ body{
   height:100%;
 }
 
-#modification{
-  display: none;
-}
-#modifVoyage{
+.menu{
   display: none;
 }
 
@@ -33,6 +30,20 @@ body{
 }
 
 #connecter{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  justify-content: center;
+  margin-top: 80px;
+  align-items: center;
+  border: solid 2px;
+  border-color:#7b756a;
+  border-radius: 50px 50px 50px 50px;
+  height: 40%;
+  width: 70%;
+}
+
+#menu3{
   display: flex;
   flex-wrap: wrap;
   background-color: white;
@@ -127,15 +138,14 @@ left:500px;
   }
 
   #logo {
-    float: left;
-  position: absolute;
-  bottom: 414px;
-  background-image: url(img/logo.png);
-  background-repeat: no-repeat;
-  margin: 244px;
-  width: 72px;
-  height: 161px;
-  background-size: 100%;
+    position: absolute;
+    left: 174px;
+    bottom: 637px;
+    background-image: url(img/logo.png);
+    background-repeat: no-repeat;
+    width: 72px;
+    height: 161px;
+    background-size: 100%;
   }
 
   @-webkit-keyframes rotation {
