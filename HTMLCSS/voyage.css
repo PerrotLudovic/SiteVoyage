@@ -121,7 +121,22 @@ left:500px;
     60% {transform: rotate(360deg);}
   }
 
+  #menu{
+    color:#7b756a
+    font-size: 15px;
+    position: absolute;
+    left: 18px;
+    top:130px;
+    position: fixed;
+  background-color: white;
+  opacity: 75%;
+  height: 75px;
+  width: 130px;
+  text-align: center;
 
+
+
+  }
 
 #compte
 {display: none;
