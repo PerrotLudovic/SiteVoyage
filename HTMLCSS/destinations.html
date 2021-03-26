@@ -63,7 +63,6 @@
 			<div class="box"></div>
 			<div class="box"></div>
 			<div class="box"></div>
-			<div class="box"><img class="boxpays" alt="pays" title="Maroc" src="img/curseurmap.jpg"></div>
 			<div class="box"></div>
 			<div class="box"></div>
 			<div class="box"></div>
@@ -286,6 +285,7 @@
 			<div class="box"></div>
 			<div class="box"></div>
 			<div class="box"></div>
+			<div class="box" id="Chili"></div>
 			<div class="box"></div>
 			<div class="box"></div>
 			<div class="box"></div>
@@ -372,8 +372,27 @@
 			<div class="box"></div>
 		</div>
 
-
+	<div id="dispo">
+		<span id="titreVoy">Voyage disponible pour ce Pays</span><br>
+		Date départ <span class="case">07-05-2021</span><br>
+		Date de fin <span class="case">27-05-2021</span><br>
+		Pays de départ <span class="case">France</span><br>
+		Pays de destination <span class="case">Brésil</span><br><br>
+		<input class="btn btn-success"type="submit" id="validateBtn" value="Réserver ce voyage">
     </div>
 
+</div>
   </body>
   </html>
+
+	<script>
+
+	var idchili=document.getElementById("Chili");
+
+	idchili.onmousemove=function zoom(){
+idchili.style.backgroundsize=130%;
+
+}
+
+
+	</script>
