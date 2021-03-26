@@ -96,6 +96,16 @@ left:500px;
   bottom:20px;
   left:980px;}
 
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    width: 122%;
+  }
+
   #logo {
     float: left;
     background-image: url(img/logo.png);

@@ -7,7 +7,7 @@ body{
   background-repeat:no-repeat;
 }
 
-.container{background-image: url(img/mapmonde.png);
+.container{
   background-size: 100%;
   background-repeat: no-repeat;
   background-color: white;
@@ -20,7 +20,22 @@ body{
   display: flex;
   flex-wrap: wrap;
 }
+#vmap
+{
 
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-color: white;
+  opacity: 75%;
+  position: absolute;
+  top:150px;
+  left: 325px;
+  width:900px;
+  height:500px;
+  display: flex;
+  flex-wrap: wrap;
+
+}
 .box{
 height: 50px;
 width: 50px;
