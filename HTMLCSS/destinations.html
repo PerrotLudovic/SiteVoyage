@@ -1,8 +1,10 @@
 
-<Style>
-#infos,#resa,#voyage,#deconnection{display:none;};
+<style>
+#infos,#resa,#voyage,#deconnection{
+	display:none};
 
-</Style>
+</style>
+
 <html>
 	<head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -19,17 +21,11 @@
 
 	<body>
     <header>
-<div id="logo"></div>
+<div id="logo" class="rotation"></div>
 <div class="textheader">MonbeauVoyage.fr</div>
 <span class="smalltext">(Roi des voyages...)</span>
     </header>
 
-  <div id="menu">
-		  <a id="mesInfos"href="destination.HTML">Mes informations</a>
-			<a href="destination.HTML">Mes réservations</a>
-			<a href="destination.HTML">Deconnexion</a>
-
-  </div>
 
 	<div id="textdestination">
 			Nos destinations
@@ -39,10 +35,6 @@
 
 		</div>
     </div>
-
-		<div id="vmap"></div>
-
-<div id="buttonconnect"></div>
 
 		<div id="infos">
 			<form >
@@ -132,12 +124,38 @@
 
 		<div id="vmap" ></div>
 
-		<div id="voyage">
+
+		<div id="bresil">
 			<p id="titreVoyage"><b>Voyage dispo pour ce pays</b></p>
-			Date départ <span id="box">15-05-2021</span><br>
-			Date de fin <span id="box">15-05-2021</span><br>
-			Pays de départ <span id="box">France</span><br>
-			Destination <span id="box">Brésil</span><br><br>
+			<table id="tableVoyage">
+				<tr><td>Date départ</td><td><span id="box">15-05-2021</span></td></tr>
+			<tr><td>Date de fin</td><td><span id="box">15-07-2021</span></td></tr>
+			<tr><td>Pays de départ</td><td><span id="box">France</span></td></tr>
+			<tr><td>Destination</td><td><span id="box">Brésil</span></td></tr>
+			<tr><input id="btnVoyage" type="button" class="btn btn-success" name="" value="Réserver ce voyage"></tr>
+			</table>
+		</div>
+
+		<div id="argentine">
+			<p id="titreVoyage"><b>Voyage dispo pour ce pays</b></p>
+			<table id="tableVoyage">
+				<tr><td>Date départ</td><td><span id="box">15-05-2021</span></td></tr>
+			<tr><td>Date de fin</td><td><span id="box">15-07-2021</span></td></tr>
+			<tr><td>Pays de départ</td><td><span id="box">France</span></td></tr>
+			<tr><td>Destination</td><td><span id="box">Argentine</span></td></tr>
+			<tr><input id="btnVoyage" type="button" class="btn btn-success" name="" value="Réserver ce voyage"></tr>
+			</table>
+		</div>
+
+		<div id="norvege">
+			<p id="titreVoyage"><b>Voyage dispo pour ce pays</b></p>
+			<table id="tableVoyage">
+				<tr><td>Date départ</td><td><span id="box">15-05-2021</span></td></tr>
+			<tr><td>Date de fin</td><td><span id="box">15-07-2021</span></td></tr>
+			<tr><td>Pays de départ</td><td><span id="box">France</span></td></tr>
+			<tr><td>Destination</td><td><span id="box">Norvège</span></td></tr>
+			<tr><input id="btnVoyage" type="button" class="btn btn-success" name="" value="Réserver ce voyage"></tr>
+			</table>
 		</div>
   </body>
   </html>
@@ -159,29 +177,45 @@
 
 
 		///A NOUS
-		$(".jqvmap-region").click(function()
-		{
-			var pays = $(".jqvmap-label").html();
-			location.href="www.votresite.html?pays="+pays;
+		var x=0;
+
+		$("#jqvmap1_br").click(function()
+		{	x++;
+			if(x%2==0){
+			bresil.style.display="none";}
+			else{bresil.style.display="inline-block";}
+
 		}
 		);
-		//
-      });
 
-			mesInfos.onclick=modif;
+			$("#jqvmap1_ar").click(function()
+			{	x++;
+				if(x%2==0){
+				argentine.style.display="none";}
+				else{argentine.style.display="inline-block";}
+
+			}
+			);
+
+
+			$("#jqvmap1_no").click(function()
+			{	x++;
+				if(x%2==0){
+				norvege.style.display="none";}
+				else{norvege.style.display="inline-block";}
+
+			}
+			);
+
+	      });
+
+			infos.onclick=modif;
 
 function modif(){
-
-  mesInfos.style.display="block";
+  infos.style.display="block";
 	vmap.style.display="none"
 
 }
-
-buttonconnect.onclick=affiche;
-function affiche(){
-  voyage.style.display="inline-block";
-}
-
 
 
 
