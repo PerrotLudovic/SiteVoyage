@@ -140,26 +140,26 @@ left:500px;
   #logo {
     position: absolute;
     left: 174px;
-    bottom: 637px;
+    top: 0px;
     background-image: url(img/logo.png);
     background-repeat: no-repeat;
     width: 72px;
-    height: 161px;
+    height: 100px;
     background-size: 100%;
   }
 
   @-webkit-keyframes rotation {
-        from{
-            -webkit-transform: rotate(360deg);
-        }
-        to{
-            -webkit-transform: rotate(0deg);
-        }
-    }
+      from{
+          -webkit-transform: rotate(360deg);
+      }
+      to{
+          -webkit-transform: rotate(0deg);
+      }
+  }
 
-    .rotation {
-        -webkit-animation: rotation 3s linear infinite;
-    }
+  .rotation {
+      -webkit-animation: rotation 3s linear infinite;
+  }
 
   #menu{
     color:#7b756a
