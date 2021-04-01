@@ -56,6 +56,7 @@ font-family: fantasy;
   position: absolute;
   top:150px;
   left: 200px;
+  right: 200px;
   width:72%;
   height:10%;
   text-align: center;
@@ -139,6 +140,13 @@ text-align: center;
   background-color: white;
 }
 
+#tableVoyage{align="left";
+}
+
+#btnVoyage{position: absolute;
+bottom: 5px;
+left:65px}
+
 #titreVoyage{
   font-style:
   font-size: 16px;
@@ -158,12 +166,7 @@ height: 220px;
 width: 280px;
 }
 
-#tableVoyage{align="left";
-}
 
-#btnVoyage{position: absolute;
-bottom: 5px;
-left:65px}
 
 #argentine{ display:none;
   position: absolute;
@@ -180,8 +183,20 @@ left:65px}
 
 #norvege{ display:none;
 position: absolute;
-left:850px;
+left:790px;
 top:250px;
+border-radius: 20px 20px 20px 20px;
+background-color: white;
+padding: 10px;
+font-size: 15px;
+height: 220px;
+width: 280px;
+}
+
+#japon{ display:none;
+position: absolute;
+left:1050px;
+top:550px;
 border-radius: 20px 20px 20px 20px;
 background-color: white;
 padding: 10px;
@@ -198,4 +213,43 @@ width: 280px;
   font-size: 18px;
   width: 300px;
   height: 50px;
+}
+
+.jqvmap-label{
+  position: absolute;
+  color: darkblue;
+  font-size: 30px;
+}
+.pointeur{height: 25px;
+width: 25px;}
+
+#pointeurBr{
+  position: absolute;
+  left:625px;
+  top:600px;
+  display:inline-block;
+}
+
+#pointeurAr{
+  position: absolute;
+  left:588px;
+  top:670px;
+  display:inline-block;
+}
+
+#pointeurNo{
+  position: absolute;
+  left:760px;
+  top:382px;
+  display:inline-block;
+}
+
+#pointeurJp{
+  position: absolute;
+  left:1079px;
+  top:439px;
+  display:inline-block;
+}
+
+
 }

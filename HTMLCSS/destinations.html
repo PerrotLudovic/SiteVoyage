@@ -125,6 +125,7 @@
 		<div id="vmap" ></div>
 
 
+
 		<div id="bresil">
 			<p id="titreVoyage"><b>Voyage dispo pour ce pays</b></p>
 			<table id="tableVoyage">
@@ -135,6 +136,7 @@
 			<tr><input id="btnVoyage" type="button" class="btn btn-success" name="" value="Réserver ce voyage"></tr>
 			</table>
 		</div>
+		<span class="pointeur" ><img id="pointeurBr" class="pointeur" src="img/marker/yellow.png" alt=""></span>
 
 		<div id="argentine">
 			<p id="titreVoyage"><b>Voyage dispo pour ce pays</b></p>
@@ -146,6 +148,7 @@
 			<tr><input id="btnVoyage" type="button" class="btn btn-success" name="" value="Réserver ce voyage"></tr>
 			</table>
 		</div>
+		<span class="pointeur" ><img id="pointeurAr" class="pointeur" src="img/marker/yellow.png" alt=""></span>
 
 		<div id="norvege">
 			<p id="titreVoyage"><b>Voyage dispo pour ce pays</b></p>
@@ -157,6 +160,19 @@
 			<tr><input id="btnVoyage" type="button" class="btn btn-success" name="" value="Réserver ce voyage"></tr>
 			</table>
 		</div>
+		<span><img id="pointeurNo" class="pointeur" src="img/marker/yellow.png" alt=""></span>
+
+		<div id="japon">
+			<p id="titreVoyage"><b>Voyage dispo pour ce pays</b></p>
+			<table id="tableVoyage">
+				<tr><td>Date départ</td><td><span id="box">15-05-2021</span></td></tr>
+			<tr><td>Date de fin</td><td><span id="box">15-07-2021</span></td></tr>
+			<tr><td>Pays de départ</td><td><span id="box">France</span></td></tr>
+			<tr><td>Destination</td><td><span id="box">Japon</span></td></tr>
+			<tr><input id="btnVoyage" type="button" class="btn btn-success" name="" value="Réserver ce voyage"></tr>
+			</table>
+		</div>
+		<span><img id="pointeurJp" class="pointeur" src="img/marker/yellow.png" alt=""></span>
   </body>
   </html>
 
@@ -179,6 +195,10 @@
 		///A NOUS
 		var x=0;
 
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////BRESIL
+////////////////////////////////////////////////////////////////////////////////
+
 		$("#jqvmap1_br").click(function()
 		{	x++;
 			if(x%2==0){
@@ -188,7 +208,23 @@
 		}
 		);
 
-			$("#jqvmap1_ar").click(function()
+		$("#jqvmap1_br,#pointeurBr").mouseenter(function()
+		{	pointeurBr.style.display="none";
+
+		}
+		);
+
+		$("#jqvmap1_br,#pointeurBr").mouseleave(function()
+		{	pointeurBr.style.display="inline-block";
+		}
+		);
+
+
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////ARGENTINE
+////////////////////////////////////////////////////////////////////////////////
+
+					$("#jqvmap1_ar").click(function()
 			{	x++;
 				if(x%2==0){
 				argentine.style.display="none";}
@@ -196,6 +232,21 @@
 
 			}
 			);
+
+			$("#jqvmap1_ar,#pointeurAr").mouseenter(function()
+			{	pointeurAr.style.display="none";
+
+			}
+			);
+
+			$("#jqvmap1_ar,#pointeurAr").mouseleave(function()
+			{	pointeurAr.style.display="inline-block";
+			}
+			);
+
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////NORVEGE
+////////////////////////////////////////////////////////////////////////////////
 
 
 			$("#jqvmap1_no").click(function()
@@ -206,6 +257,43 @@
 
 			}
 			);
+
+			$("#jqvmap1_no,#pointeurNo").mouseenter(function()
+			{	pointeurNo.style.display="none";
+
+			}
+			);
+
+			$("#jqvmap1_no,#pointeurNo").mouseleave(function()
+			{	pointeurNo.style.display="inline-block";
+			}
+			);
+
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////JAPON
+////////////////////////////////////////////////////////////////////////////////
+
+
+						$("#jqvmap1_jp").click(function()
+						{	x++;
+							if(x%2==0){
+							japon.style.display="none";}
+							else{japon.style.display="inline-block";}
+
+						}
+						);
+
+						$("#jqvmap1_jp,#pointeurJp").mouseenter(function()
+						{	pointeurJp.style.display="none";
+
+						}
+						);
+
+						$("#jqvmap1_jp,#pointeurJp").mouseleave(function()
+						{	pointeurJp.style.display="inline-block";
+						}
+						);
+
 
 	      });
 
