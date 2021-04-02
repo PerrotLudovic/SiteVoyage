@@ -20,12 +20,15 @@ body{
   height:100%;
 }
 
-.menu{
-  display: none;
-}
 
 #textconnexion{
   font-family: fantasy;
+  text-align: center;
+}
+
+#ajoutV{
+  position: absolute;
+  left: 295px;
   text-align: center;
 }
 
@@ -43,12 +46,20 @@ body{
   width: 70%;
 }
 
-#menu3{
-  display: flex;
+label
+{
+	display: block;
+	width: 150px;
+	float: left;
+}
+
+#menu3, #menu1, #menu4, #menu2{
+  display: none;
   flex-wrap: wrap;
   background-color: white;
   justify-content: center;
   margin-top: 80px;
+  margin-left: 20px;
   align-items: center;
   border: solid 2px;
   border-color:#7b756a;
@@ -82,18 +93,6 @@ body{
   width: 70%;
 }
 
-#deconnexion
-{display: flex;
-  flex-wrap: wrap;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
-  border: solid 2px;
-  border-color:#7b756a;
-  border-radius: 50px 50px 50px 50px;
-  height: 6%;
-  width: 70%;
-}
 
 #buttonconnect{
   display: flex;
