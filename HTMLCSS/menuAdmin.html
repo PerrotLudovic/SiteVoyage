@@ -12,7 +12,7 @@
 
 	<body>
     <header>
-<div id="logo" class="rotation"></div>
+<div id="logo" class="rotation" onclick="document.location = 'voyage.html'"></div>
 <div class="textheader">MonbeauVoyage.fr</div>
 <span class="smalltext">(Roi des voyages...)</span>
     </header>
@@ -30,13 +30,43 @@
             <option value="2" id="supV">2-supprimer voyage</option>
             <option value="3" id="modifV">3-modifier un voyage</option>
             <option value="4" id="ajoutV">4-ajouter un voyage</option>
-            <option value="5">5-Retour au menu principal</option>
           </select>
 
 <input class="btn btn-success"type="button" id="buttonMenu" value="OK">
 				</fieldset>
       </form>
 
+      <div class="menu" id="menu1">
+        <form id="suppClient">
+
+          <fieldset>
+            <legend>Suppression d'un client</legend>
+          <table >
+            <tr>
+              <td><label for="id">Saisir l'id du client à supprimer</label><input placeholder=id type="text"> </td>
+            </tr>
+            </table >
+
+            <input class="btn btn-success"type="button" id="buttonModif" value="OK">
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="menu" id="menu2">
+        <form id="suppClient">
+
+          <fieldset>
+            <legend>Suppression d'un voyage</legend>
+          <table >
+            <tr>
+              <td><label for="id">Saisir l'id du voyage à supprimer</label><input placeholder=id type="text"> </td>
+            </tr>
+            </table >
+
+            <input class="btn btn-success"type="button" id="buttonModif" value="OK">
+          </fieldset>
+        </form>
+      </div>
 
         <div class="menu" id="menu3">
           <form id="modification">
@@ -44,23 +74,54 @@
     				  <legend>modification d'un voyage</legend>
     				<table >
     					<tr>
-    						<td>L'id<input placeholder=id type="text"> </td>
+    						<td><label for="id">L'id</label><input placeholder=id type="text"> </td>
     					</tr>
     				  <tr>
-    				    <td>Date de départ <input  name="date depart" value="2018-10-15" type="date"></td>
+    				    <td><label for="dateDepart">Date de départ </label><input  name="date depart" value="2018-10-15" type="date"></td>
     				  </tr>
-              <td>Date de Retour <input  name="date retour" value="2018-10-15" type="date"></td>
-    					<tr>
+              <tr>
+                <td><label for="dateRetour">Date de Retour </label><input  name="date retour" value="2018-10-15" type="date"></td>
+              </tr>
     					</table >
+
               <input class="btn btn-success"type="button" id="buttonModif" value="OK">
     				</fieldset>
     			</form>
         </div>
 
 
+        <div class="menu" id="menu4">
+          <form id="modification">
 
+            <fieldset id="AjoutV">
+              <legend >Ajouter un voyage</legend>
+            <table >
+              <tr>
+                <td><label for="id">L'id</label><input placeholder=id type="text"> </td>
+              </tr>
+              <tr>
+                <td><label for="paysDestination">Pays destination</label><input  placeholder="Pays"type="text"></td>
+              </tr>
+              <tr>
+                <td><label for="rest">Restriction sanitaire </label><select id="restriction">
+                  <option value="0" id="restNon">Pas de restriction</option>
+                  <option value="1" id="restOui">Restriction sanitaire</option>
+                </select></td>
+              </tr>
+              <tr><td><label for="prixJours">Prix/jour</label><input placeholder=prix type="number"> </td></tr>
+              <tr>
+               <td><label for="dateDep">Date de départ </label><input  name="date depart" value="2018-10-15" type="date"></td>
+             </tr>
+              <tr>
+                <td><label for="dateRet">Date de Retour</label><input  name="date retour" value="2018-10-15" type="date"></td>
+              </tr>
+              </table >
+              <input class="btn btn-success"type="button" id="buttonModif" value="OK">
+            </fieldset>
+          </form>
         </div>
 
+			</form>
   </body>
   </html>
 
@@ -68,18 +129,18 @@
   <script>
 
 buttonMenu.onclick=modif;
-function modif(){
 
+function modif(){
 var choixMenu=($("#menuAdmin").val());
 
 switch(choixMenu){
-  case "1": menu3.style.display="inline-block";connecter.style.display="none"; break;
-  case "2": menu3.style.display="inline-block";connecter.style.display="none"; break;
+  case "1": menu1.style.display="inline-block";connecter.style.display="none"; break;
+  case "2": menu2.style.display="inline-block";connecter.style.display="none"; break;
   case "3": menu3.style.display="inline-block";connecter.style.display="none"; break;
-  case "4": menu3.style.display="inline-block";connecter.style.display="none"; break;
-  case "5": menu3.style.display="inline-block";connecter.style.display="none"; break;
-  default:alert("Selectionner un choix ");break;
+  case "4": menu4.style.display="inline-block";connecter.style.display="none"; break;
+  default:alert("Selectionner un choix ");break;};
 };
+
 
 
 };
