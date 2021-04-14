@@ -34,8 +34,8 @@ body{
   height:500px;
   display: flex;
   flex-wrap: wrap;
-
 }
+
 .box{
 height: 50px;
 width: 50px;
@@ -99,6 +99,12 @@ left:500px;
     background-size: 100%;
   }
 
+  #logoCompte{
+  position: absolute;
+  left:40px;
+  top:180px;
+  }
+
   @-webkit-keyframes rotation {
       from{
           -webkit-transform: rotate(360deg);
@@ -153,6 +159,7 @@ left:65px}
 text-align: center;
   }
 
+
 #bresil{
 position: absolute;
 left:350px;
@@ -197,6 +204,18 @@ width: 280px;
 position: absolute;
 left:1050px;
 top:550px;
+border-radius: 20px 20px 20px 20px;
+background-color: white;
+padding: 10px;
+font-size: 15px;
+height: 220px;
+width: 280px;
+}
+
+#maroc{ display:none;
+position: absolute;
+left:600px;
+top:580px;
 border-radius: 20px 20px 20px 20px;
 background-color: white;
 padding: 10px;
@@ -251,5 +270,11 @@ width: 25px;}
   display:inline-block;
 }
 
+#pointeurMa{
+  position: absolute;
+  left:720px;
+  top:480px;
+  display:inline-block;
+}
 
 }

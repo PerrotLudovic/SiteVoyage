@@ -8,6 +8,7 @@
 <html>
 	<head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -21,7 +22,7 @@
 
 	<body>
     <header>
-<div id="logo" class="rotation"></div>
+<div id="logo" class="rotation" onclick="document.location = 'voyage.html'"></div>
 <div class="textheader">MonbeauVoyage.fr</div>
 <span class="smalltext">(Roi des voyages...)</span>
     </header>
@@ -31,10 +32,10 @@
 			Nos destinations
 		</div>
 
-    <div class="container">
+<div id="logoCompte"><i onclick="document.location = 'voyage.html'" class="bi bi-person-fill"></i></div>
 
+    <div class="container">
 		</div>
-    </div>
 
 		<div id="infos">
 			<form >
@@ -138,7 +139,7 @@
 		</div>
 		<span class="pointeur" ><img id="pointeurBr" class="pointeur" src="img/marker/yellow.png" alt=""></span>
 
-		<div id="argentine">
+		<div id="argentine" class="boite">
 			<p id="titreVoyage"><b>Voyage dispo pour ce pays</b></p>
 			<table id="tableVoyage">
 				<tr><td>Date départ</td><td><span id="box">15-05-2021</span></td></tr>
@@ -173,6 +174,20 @@
 			</table>
 		</div>
 		<span><img id="pointeurJp" class="pointeur" src="img/marker/yellow.png" alt=""></span>
+
+		<div id="maroc">
+			<p id="titreVoyage"><b>Voyage dispo pour ce pays</b></p>
+			<table id="tableVoyage">
+				<tr><td>Date départ</td><td><span id="box">15-05-2021</span></td></tr>
+			<tr><td>Date de fin</td><td><span id="box">15-07-2021</span></td></tr>
+			<tr><td>Pays de départ</td><td><span id="box">France</span></td></tr>
+			<tr><td>Destination</td><td><span id="box">Maroc</span></td></tr>
+			<tr><input id="btnVoyage" type="button" class="btn btn-success" name="" value="Réserver ce voyage"></tr>
+			</table>
+		</div>
+		<span><img id="pointeurMa" class="pointeur" src="img/marker/yellow.png" alt=""></span>
+
+
   </body>
   </html>
 
@@ -192,20 +207,17 @@
         });
 
 
-		///A NOUS
-		var x=0;
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 ///////////////////////BRESIL
 ////////////////////////////////////////////////////////////////////////////////
 
-		$("#jqvmap1_br").click(function()
-		{	x++;
-			if(x%2==0){
-			bresil.style.display="none";}
-			else{bresil.style.display="inline-block";}
+	var x=0;
 
-		}
+		$("#jqvmap1_br").click(function()
+		{	bresil.style.display="inline-block";}
 		);
 
 		$("#jqvmap1_br,#pointeurBr").mouseenter(function()
@@ -219,17 +231,18 @@
 		}
 		);
 
+		$("#bresil").mouseleave(function()
+		{bresil.style.display="none";
+		}
+		);
+
 
 ////////////////////////////////////////////////////////////////////////////////
 ///////////////////////ARGENTINE
 ////////////////////////////////////////////////////////////////////////////////
 
 					$("#jqvmap1_ar").click(function()
-			{	x++;
-				if(x%2==0){
-				argentine.style.display="none";}
-				else{argentine.style.display="inline-block";}
-
+			{argentine.style.display="inline-block";
 			}
 			);
 
@@ -244,18 +257,17 @@
 			}
 			);
 
+
+			$("#argentine").mouseleave(function()
+			{argentine.style.display="none";			}
+			);
 ////////////////////////////////////////////////////////////////////////////////
 ///////////////////////NORVEGE
 ////////////////////////////////////////////////////////////////////////////////
 
 
 			$("#jqvmap1_no").click(function()
-			{	x++;
-				if(x%2==0){
-				norvege.style.display="none";}
-				else{norvege.style.display="inline-block";}
-
-			}
+			{	norvege.style.display="inline-block";}
 			);
 
 			$("#jqvmap1_no,#pointeurNo").mouseenter(function()
@@ -269,18 +281,16 @@
 			}
 			);
 
+			$("#norvege").mouseleave(function()
+			{norvege.style.display="none";			}
+			);
 ////////////////////////////////////////////////////////////////////////////////
 ///////////////////////JAPON
 ////////////////////////////////////////////////////////////////////////////////
 
 
 						$("#jqvmap1_jp").click(function()
-						{	x++;
-							if(x%2==0){
-							japon.style.display="none";}
-							else{japon.style.display="inline-block";}
-
-						}
+						{japon.style.display="inline-block";}
 						);
 
 						$("#jqvmap1_jp,#pointeurJp").mouseenter(function()
@@ -294,6 +304,27 @@
 						}
 						);
 
+						$("#japon").mouseleave(function()
+						{japon.style.display="none";			}
+						);
+
+
+////////////////////////////////////////////////////////////////////////////////
+///////////////////////MAROC
+////////////////////////////////////////////////////////////////////////////////
+
+
+$("#jqvmap1_ma").click(function()
+{maroc.style.display="inline-block";});
+
+$("#jqvmap1_ma,#pointeurMa").mouseenter(function()
+{	pointeurMa.style.display="none";});
+
+$("#jqvmap1_ma,#pointeurMa").mouseleave(function()
+{	pointeurMa.style.display="inline-block";});
+
+$("#maroc").mouseleave(function()
+{maroc.style.display="none";});
 
 	      });
 

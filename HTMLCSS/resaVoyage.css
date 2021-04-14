@@ -17,7 +17,6 @@ body{
   top:160px;
   left: 200px;
   width:75%;
-  height:100%;
 }
 
 .menu{
@@ -29,7 +28,23 @@ body{
   text-align: center;
 }
 
-#connecter{
+#voyageur{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px;
+  border-color:#7b756a;
+  border-radius: 50px 50px 50px 50px;
+  height: 25%;
+  width: 35%;
+}
+
+#voyageur.v2,#voyageur.v3,#voyageur.v4,#voyageur.v5,#voyageur.v6{display: none;
+}
+
+#infoVoyage{
   display: flex;
   flex-wrap: wrap;
   background-color: white;
@@ -39,65 +54,8 @@ body{
   border: solid 2px;
   border-color:#7b756a;
   border-radius: 50px 50px 50px 50px;
-  height: 40%;
+  height: 25%;
   width: 70%;
-}
-
-#menu3{
-  display: none;
-  background-color: white;
-  justify-content: center;
-  margin-top: 80px;
-  align-items: center;
-  border: solid 2px;
-  border-color:#7b756a;
-  border-radius: 50px 50px 50px 50px;
-  height: 40%;
-  width: 70%;
-}
-
-.creation{
-  display: flex;
-    background-color: white;
-    justify-content: center;
-    align-items: center;
-    border: solid 2px;
-    border-color:#7b756a;
-    border-radius: 50px 50px 50px 50px;
-    height: 10%;
-    width: 70%;
-}
-
-#visiteur
-{display: flex;
-  flex-wrap: wrap;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
-  border: solid 2px;
-  border-color:#7b756a;
-  border-radius: 50px 50px 50px 50px;
-  height: 6%;
-  width: 70%;
-}
-
-#deconnexion
-{display: flex;
-  flex-wrap: wrap;
-  background-color: white;
-  justify-content: center;
-  align-items: center;
-  border: solid 2px;
-  border-color:#7b756a;
-  border-radius: 50px 50px 50px 50px;
-  height: 6%;
-  width: 70%;
-}
-
-#buttonconnect{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
 }
 
 header{
@@ -126,15 +84,6 @@ left:500px;
   bottom:20px;
   left:980px;}
 
-  .info {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: white;
-    justify-content: center;
-    align-items: center;
-    height: 10%;
-    width: 122%;
-  }
 
   #logo {
     position: absolute;
@@ -160,28 +109,10 @@ left:500px;
       -webkit-animation: rotation 3s linear infinite;
   }
 
-  #menu{
-    color:#7b756a
-    font-size: 15px;
-    position: absolute;
-    left: 18px;
-    top:130px;
-    position: fixed;
-  background-color: white;
-  opacity: 75%;
-  height: 75px;
-  width: 130px;
-  text-align: center;
+#conditions{
 
-
-#compte
-{display: none;
-  float:left;
   background-color: white;
-}
+  border-radius: 10px 10px 10px 10px;
+  height: 25px;
 
-#creationCompte
-{display: none;
-  float:left;
-  background-color: white;
 }

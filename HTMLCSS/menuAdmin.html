@@ -36,9 +36,10 @@
 <input class="btn btn-success"type="button" id="buttonMenu" value="OK">
 				</fieldset>
       </form>
+
+
         <div class="menu" id="menu3">
           <form id="modification">
-
     				<fieldset>
     				  <legend>modification d'un voyage</legend>
     				<table >
@@ -55,23 +56,32 @@
     				</fieldset>
     			</form>
         </div>
-			</form>
+
+
+
+        </div>
+
   </body>
   </html>
 
 
-
   <script>
-buttonMenu.onclick=modif;
-//buttonModif.onclick=
 
+buttonMenu.onclick=modif;
 function modif(){
 
-  var choixMenu=$("#menuAdmin").val();
-  $("#menu"+choixMenu).css("display","block");
-  connecter.style.display="none";
+var choixMenu=($("#menuAdmin").val());
 
-}
+switch(choixMenu){
+  case "1": menu3.style.display="inline-block";connecter.style.display="none"; break;
+  case "2": menu3.style.display="inline-block";connecter.style.display="none"; break;
+  case "3": menu3.style.display="inline-block";connecter.style.display="none"; break;
+  case "4": menu3.style.display="inline-block";connecter.style.display="none"; break;
+  case "5": menu3.style.display="inline-block";connecter.style.display="none"; break;
+  default:alert("Selectionner un choix ");break;
+};
 
+
+};
 
   </script>
